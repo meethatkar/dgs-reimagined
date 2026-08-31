@@ -1,0 +1,35 @@
+******1. Main Global Landing Page (/)
+Goal: Establish massive corporate authority and route the user to their desired division.
+
+Dual-Portal Gateway Hero: The 50/50 split-screen with cinematic hover and click-to-enter transitions.
+
+Cinematic Tagline: Massive typography acting as a video mask (e.g., "SHAPING MUMBAI'S FUTURE").
+
+The Scale of Excellence (Count-Up): The high-impact data snapshot (30+ Years, 75 Lacs Sq. Ft.) proving their legacy immediately after the tagline.
+
+Pillars of Legacy (Why Us): A clean bento-box grid highlighting construction quality, sustainability, and trust across the entire DGS Group.
+
+Awards & Milestones Marquee: The infinite horizontal scroll of trophies to cement their industry dominance.
+
+YouTube Video Reviews: The high-performance, click-to-play video components.
+
+Global Footer: Clean routing links and overarching corporate info.
+
+*****2. Business Landing Pages (/builders & /retailers)
+Goal: Showcase the specific founder, display the projects dynamically, and capture leads.
+
+Business-Specific Hero: A premium entry tailored to either residential luxury (Builders) or commercial scale (Retailers).
+
+The Visionary (Founder's Desk): The portrait and quote of the specific brother running this division.
+
+Interactive Transit Map: The Virar-to-Churchgate glowing SVG scroll, revealing projects specific to this company.
+
+Filterable Project Grid: The animated masonry grid where buyers can sort Ongoing/Completed, BHK, and Area.
+
+The Buying Journey: The winding SVG path showing the step-by-step process of investing with this specific division.
+
+Customer Reviews: Horizontal draggable carousel of star ratings.
+
+Contact Gateway: The "Talk, Meet, Write" form to capture the lead.
+
+Business Footer: Specific contact details and RERA numbers.

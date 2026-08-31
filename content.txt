@@ -1,0 +1,22 @@
+*****1. Trust & Authority Builders
+Leadership / Founder’s Desk: Real estate is built on trust. Add a section featuring a high-quality portrait of the founder(s) or Managing Director alongside a powerful quote and a brief message about their 30-year vision.
+
+Banking & Financial Partners: A grid of logos showing authorized home-loan partners (e.g., HDFC, SBI, ICICI). This instantly tells buyers, "Major banks trust our projects, so you can too."
+
+Media & Press Coverage: A "DGS in the News" section showing thumbnails of press releases, newspaper clippings, or digital articles mentioning their milestone projects.
+
+
+
+*****2. Interactive & Engaging Elements
+Interactive Mumbai Project Map: Instead of just listing locations on cards, add a stylized, interactive map of Mumbai (or the specific suburbs they build in). Users can click on map pins to see pop-ups of the ongoing and completed projects in that specific area.
+
+video that will be played on user scroll, like converting video frames into images and then run them on user scroll.
+
+
+
+*****3. Customer-Centric Additions
+The "Why Choose DGS" / Core Values Grid: A beautifully designed 3-column or 4-column section with custom SVG icons detailing their pillars: e.g., Timely Delivery, Transparent Legalities, Premium Quality, Sustainable Architecture.
+
+The Home-Buying Journey (Timeline): A step-by-step visual timeline showing the customer process: 1. Consultation ➔ 2. Site Visit ➔ 3. Seamless Booking ➔ 4. Loan Assistance ➔ 5. Key Handover. This reduces buyer friction.
+
+Expanded Testimonials Carousel: You currently have one "Customers Speak" video. Add a sleek, auto-playing carousel of text-based reviews with star ratings and the names of the projects the customers bought into.
