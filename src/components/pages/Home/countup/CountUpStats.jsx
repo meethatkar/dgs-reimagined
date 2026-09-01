@@ -59,7 +59,6 @@ const CountUpStats = () => {
           end: isMobile ? "top 30%" : "top 50%",
           once: true, // Only run once for clean UX
           scrub: true,
-          markers: true,
         },
       });
 

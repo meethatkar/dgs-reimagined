@@ -9,9 +9,11 @@ The Scale of Excellence (Count-Up): The high-impact data snapshot (30+ Years, 75
 
 Pillars of Legacy (Why Us): A clean bento-box grid highlighting construction quality, sustainability, and trust across the entire DGS Group. 
 
-Awards & Milestones Marquee: The infinite horizontal scroll of trophies to cement their industry dominance.
+Awards & Milestones Marquee: The infinite horizontal scroll of trophies to cement their industry dominance. [DONE]
 
-YouTube Video Reviews: The high-performance, click-to-play video components.
+YouTube Video Reviews: The high-performance, click-to-play video components. [DONE]
+
+Text Taglines Zoom Effect.
 
 Global Footer: Clean routing links and overarching corporate info.
 

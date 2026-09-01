@@ -50,7 +50,6 @@ const TextReveal = ({
           end,
           once, // We only want it to reveal once for a clean UX
           scrub,
-          markers: true,
         },
       });
     }, containerRef);

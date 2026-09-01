@@ -74,7 +74,7 @@ const Navbar = ({ onNavigate }) => {
           <Button
             variant="ghost"
             size="none"
-            ariaLabel="Toggle Menu"
+            aria-label="Toggle Menu"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             className="md:hidden p-2 rounded-lg text-neutral-800"
           >

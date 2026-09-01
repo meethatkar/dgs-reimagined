@@ -22,6 +22,7 @@ const Logo = ({ variant = "lg", className = "", alt = "Logo", onClick }) => {
         alt={alt}
         sizes="(max-width: 768px) 45px, 90px"
         className={`object-contain ${sizeClass}`}
+        style={{ width: "auto", height: "auto" }}
         priority
       />
     </div>

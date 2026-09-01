@@ -9,8 +9,10 @@ import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
 import Navbar from "@/components/navbar/Navbar";
 import MotiveSection from "@/components/pages/Home/MotiveSection";
 import CountUpStats from "@/components/pages/Home/countup/CountUpStats";
-import Whyus from "../pages/Home/Awards";
 import Awards from "../pages/Home/Awards";
+import Reviews from "../pages/Home/Reviews";
+import TextZoom from "../pages/Home/TextZoom";
+import AboutUs from "../pages/Home/AboutUs";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -67,7 +69,9 @@ export default function HomePage() {
         <MotiveSection />
         <CountUpStats />
         <Awards />
-        <div className="h-screen bg-green-600"></div>
+        <AboutUs />
+        <Reviews />
+        <TextZoom />
         <Footer />
       </div>
     </main>

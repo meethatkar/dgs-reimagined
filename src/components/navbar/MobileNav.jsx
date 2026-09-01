@@ -57,7 +57,7 @@ const MobileNav = ({
         <Button
           variant="icon"
           size="none"
-          ariaLabel="Close Menu"
+          aria-label="Close Menu"
           onClick={onClose}
         >
           <Cross className="w-8 h-8" />
