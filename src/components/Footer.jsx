@@ -14,9 +14,9 @@ const Footer = () => {
               DGS <span className="text-[#C59B6D]">Group</span>
             </h2>
             <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
-              Crafting Mumbai's skyline with three decades of trust. Redefining
-              affordable luxury across premium residential habitats and
-              state-of-the-art commercial hubs.
+              Crafting Mumbai&apos;s skyline with three decades of trust.
+              Redefining affordable luxury across premium residential habitats
+              and state-of-the-art commercial hubs.
             </p>
           </div>
           <Link
@@ -41,19 +41,19 @@ const Footer = () => {
               Home Gateway
             </Link>
             <Link
-              href="/about"
+              href="/"
               className="text-neutral-400 hover:text-white transition-colors text-sm"
             >
-              30-Year Legacy
+              terms 30-Year Legacy
             </Link>
             <Link
-              href="/leadership"
+              href="/"
               className="text-neutral-400 hover:text-white transition-colors text-sm"
             >
-              Founders' Vision
+              Founders&apos; Vision
             </Link>
             <Link
-              href="/awards"
+              href="/"
               className="text-neutral-400 hover:text-white transition-colors text-sm"
             >
               Awards & Media
@@ -84,7 +84,7 @@ const Footer = () => {
               Completed Projects
             </Link>
             <Link
-              href="/builders#amenities"
+              href="/builders"
               className="text-neutral-400 hover:text-[#C59B6D] transition-colors text-sm"
             >
               Lifestyle Amenities
@@ -115,7 +115,7 @@ const Footer = () => {
               Industrial Hubs
             </Link>
             <Link
-              href="/retailers#leasing"
+              href="/retailers"
               className="text-neutral-400 hover:text-[#C59B6D] transition-colors text-sm"
             >
               Leasing Enquiries
@@ -168,13 +168,13 @@ const Footer = () => {
             </p>
             <div className="flex gap-6">
               <Link
-                href="/privacy"
+                href="/"
                 className="text-neutral-600 hover:text-white transition-colors text-xs"
               >
                 Privacy Policy
               </Link>
               <Link
-                href="/terms"
+                href="/"
                 className="text-neutral-600 hover:text-white transition-colors text-xs"
               >
                 Terms of Use
