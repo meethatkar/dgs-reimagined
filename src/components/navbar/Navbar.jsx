@@ -16,55 +16,9 @@ const navItems = [
 ];
 
 const Navbar = ({ onNavigate }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState(null); // By default, no nav button is active
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // const lenis = useLenis();
-
-  // ScrollSpy & Glassmorphism Header Effect
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const sections = [
-      { label: "Projects", target: "#projects" },
-      { label: "Reviews", target: "#reviews" },
-      { label: "About", target: "#about" },
-      { label: "Blogs", target: "#blogs" },
-      { label: "Awards", target: "#awards" },
-      { label: "Contact", target: "#contact" },
-    ];
-
-    const handleScroll = () => {
-      // Toggle glassmorphism background when scrolled past hero header
-      setIsScrolled(window.scrollY > 20);
-
-      // Detect active section based on scroll position
-      const scrollPosition = window.scrollY + window.innerHeight * 0.35;
-      let currentActive = null;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.querySelector(sections[i].target);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && window.scrollY < top + height - 40) {
-            currentActive = sections[i].label;
-            break;
-          }
-        }
-      }
-
-      setActiveSection(currentActive);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleLinkClick = (item) => {
-    setActiveSection(item.label);
     setMobileMenuOpen(false);
 
     // Smooth scroll using Lenis or fallback to native scrollIntoView
@@ -83,12 +37,8 @@ const Navbar = ({ onNavigate }) => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-40 sm:px-8 lg:px-12 sm:pt-6 pointer-events-none">
-        <nav
-          className={`pointer-events-auto max-w-[1800px] mx-auto flex items-center justify-between px-5 sm:px-8 md:px-10 py-3 md:py-4 sm:rounded-2xl transition-all duration-300 ${
-            isScrolled ? "backdrop-blur-md bg-black/30 shadow-lg" : ""
-          }`}
-        >
+      <header className="sticky top-0 left-0 w-full z-40 bg-white/40 backdrop-blur-lg">
+        <nav className="max-w-[1900px] mx-auto flex items-center justify-between px-5 sm:px-8 md:px-10 py-3 md:py-4">
           {/* LOGO */}
           <Logo
             variant="lg"
@@ -101,7 +51,7 @@ const Navbar = ({ onNavigate }) => {
               <Navbtns
                 key={item.label}
                 text={item.label}
-                isActive={activeSection === item.label}
+                isActive={false}
                 onClick={() => handleLinkClick(item)}
               />
             ))}
@@ -126,23 +76,22 @@ const Navbar = ({ onNavigate }) => {
             size="none"
             ariaLabel="Toggle Menu"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="md:hidden p-2 rounded-lg"
+            className="md:hidden p-2 rounded-lg text-neutral-800"
           >
             {mobileMenuOpen ? (
-              <Cross className="w-7 h-7 text-white" />
+              <Cross className="w-7 h-7" />
             ) : (
-              <Menu className="w-7 h-7 text-white" />
+              <Menu className="w-7 h-7" />
             )}
           </Button>
         </nav>
       </header>
 
-      {/* MOBILE NAV COMPONENT WITH GSAP ANIMATIONS */}
+      {/* MOBILE NAV COMPONENT */}
       <MobileNav
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
         navItems={navItems}
-        activeSection={activeSection}
         handleLinkClick={handleLinkClick}
       />
     </>

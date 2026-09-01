@@ -15,7 +15,7 @@ const Portal = ({
       : "md:justify-end md:pr-12";
   return (
     <div
-      className={`relative w-full h-screen md:w-[38%] group cursor-pointer overflow-hidden ${alignment === "left" ? "md:rounded-r-[40px]" : "md:rounded-l-[40px]"}`}
+      className={`relative w-full h-[calc(100vh-80px)] md:h-full md:w-[38%] group cursor-pointer overflow-hidden ${alignment === "left" ? "md:rounded-r-[40px]" : "md:rounded-l-[40px]"}`}
     >
       {/* Background Image with Zoom Effect */}
       <div
@@ -28,7 +28,7 @@ const Portal = ({
 
       {/* Content Container */}
       <div
-        className={`absolute bottom-10 md:bottom-16 z-10 w-full px-6 md:px-0 flex justify-start ${alignClass}`}
+        className={`absolute bottom-8 md:bottom-10 z-10 w-full px-6 md:px-0 flex justify-start ${alignClass}`}
       >
         <div className="transform transition-transform duration-700 ease-out group-hover:-translate-y-4">
           <HeroTextCard
@@ -44,7 +44,7 @@ const Portal = ({
 
 const DualPortalGateway = () => {
   return (
-    <section className="relative w-full flex flex-col md:flex-row justify-between overflow-hidden bg-white md:h-screen">
+    <section className="relative w-full flex flex-col md:flex-row justify-between overflow-hidden bg-white md:h-[calc(100vh-104px)]">
       {/* Left Portal */}
       <Portal
         image="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80"
