@@ -14,6 +14,7 @@ const TextReveal = ({
   start = "top 85%",
   end = "top 50%",
   scrub = true,
+  once = true,
   type = "words, chars",
 }) => {
   const containerRef = useRef(null);
@@ -47,7 +48,7 @@ const TextReveal = ({
           trigger: containerRef.current,
           start, // Triggers based on prop
           end,
-          once: true, // We only want it to reveal once for a clean UX
+          once, // We only want it to reveal once for a clean UX
           scrub,
           markers: true,
         },

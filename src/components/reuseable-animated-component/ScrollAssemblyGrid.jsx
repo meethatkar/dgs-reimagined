@@ -68,16 +68,15 @@ const ScrollAssembleGrid = ({
             scrub: scrub === true ? 1 : scrub,
             pin: usePin,
             anticipatePin: 1,
-            pinType: "transform",
             invalidateOnRefresh: true,
             scroller: scrollerRef?.current || undefined,
             onLeave: onComplete,
           },
         });
 
-        // 1. Initial State: Cards start below the screen at 100vh
+        // 1. Initial State: Use window.innerHeight instead of "100vh"
         gsap.set(validCards, {
-          y: "100vh",
+          y: typeof window !== "undefined" ? window.innerHeight : 1000,
           opacity: 0,
           force3D: true,
         });
@@ -87,51 +86,33 @@ const ScrollAssembleGrid = ({
           gsap.set(overlayRef.current, { opacity: 0 });
           tl.to(
             overlayRef.current,
-            { opacity: overlayOpacity, duration: 0.4 },
+            { opacity: overlayOpacity, duration: 0.4, ease: "none" },
             0,
           );
         }
 
-        // 3. Staggered card slide-up into place (y: 100vh -> y: 0)
+        // 3. Staggered card slide-up into place
         tl.to(
           validCards,
           {
             y: 0,
             opacity: 1,
-            stagger: 0.2,
+            rotationZ: 0.01, // GPU Anti-aliasing hack for sub-pixel jitter
+            stagger: 0.15,
             duration: 1,
             ease: "power2.out",
           },
-          0.1,
+          0,
         );
 
         return () => {};
       },
     );
 
-    // Refresh scrollTrigger after image loading
-    const imgs = sectionRef.current.querySelectorAll("img");
-    if (imgs.length === 0) {
-      ScrollTrigger.refresh();
-    } else {
-      let remaining = imgs.length;
-      const settle = () => {
-        remaining -= 1;
-        if (remaining <= 0) ScrollTrigger.refresh();
-      };
-      imgs.forEach((img) => {
-        if (img.complete) settle();
-        else {
-          img.addEventListener("load", settle, { once: true });
-          img.addEventListener("error", settle, { once: true });
-        }
-      });
-    }
-
     return () => {
       mm.revert();
     };
-  }, [items, start, end, scrub, pin, pinOnMobile, mobileBreakpoint]);
+  }, [items, start, end, scrub, pin, pinOnMobile, mobileBreakpoint, uid]);
 
   const renderCard = (item, globalIndex) => {
     if (renderItem) {
@@ -219,7 +200,7 @@ const ScrollAssembleGrid = ({
   return (
     <section
       ref={sectionRef}
-      className={`relative h-[calc(100vh-80px)] w-full overflow-hidden p-4 md:p-8 flex flex-col justify-between ${className}`}
+      className={`relative h-[calc(100dvh-80px)] w-full overflow-hidden p-4 md:p-8 flex flex-col justify-between ${className}`}
     >
       {/* Background Media */}
       {backgroundVideo ? (
@@ -258,8 +239,9 @@ const ScrollAssembleGrid = ({
           {typeof heading === "string" ? (
             <TextReveal
               className={`text-center uppercase font-black text-primary tracking-tight ${headingClassName}`}
-              start="top 65%"
+              start="top 75%"
               end="top 30%"
+              once={false}
             >
               {heading}
             </TextReveal>
