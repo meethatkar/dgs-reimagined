@@ -18,7 +18,7 @@ const ScrollAssembleGrid = ({
   backgroundVideo,
   overlayColor = "#121212",
   overlayOpacity = 0.8,
-  headingClassName = "text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tighter drop-shadow-2xl",
+  headingClassName = "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter drop-shadow-sm",
   cardClassName = "",
   className = "",
   start = "top 10%",
@@ -136,9 +136,9 @@ const ScrollAssembleGrid = ({
           ref={(el) => {
             cardRefs.current[globalIndex] = el;
           }}
-          className={`flex flex-col w-[80%] mx-auto group will-change-transform ${cardClassName}`}
+          className={`flex flex-col w-[88%] md:w-[80%] mx-auto group will-change-transform ${cardClassName}`}
         >
-          <div className="bg-neutral-200/80 rounded-2xl p-3 md:p-4 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-neutral-100/80 flex flex-col items-center text-center w-full h-full transition-all duration-300 hover:shadow-xl">
+          <div className="bg-neutral-200/80 rounded-2xl p-2.5 md:p-4 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-neutral-100/80 flex flex-col items-center text-center w-full h-full transition-all duration-300 hover:shadow-xl">
             {/* Image Container */}
             <div className="w-full aspect-[4/3] bg-[#f4f4f4] rounded-xl overflow-hidden relative flex items-center justify-center p-2">
               <Image
@@ -151,11 +151,11 @@ const ScrollAssembleGrid = ({
             </div>
 
             {/* Content below image */}
-            <div className="mt-2.5 md:mt-3 flex flex-col items-center text-center px-1">
-              <span className="text-primary font-bold text-xs md:text-sm tracking-wide">
+            <div className="mt-2 md:mt-3 flex flex-col items-center text-center px-1">
+              <span className="text-[#C59B6D] font-bold text-xs md:text-sm tracking-wide">
                 {item.year}
               </span>
-              <h3 className="text-neutral-800 font-semibold text-xs sm:text-sm md:text-base leading-snug mt-1 max-w-[95%]">
+              <h3 className="text-neutral-800 font-semibold text-xs sm:text-sm md:text-base leading-snug mt-0.5 max-w-[95%]">
                 {item.title || item.label}
               </h3>
             </div>
@@ -174,7 +174,6 @@ const ScrollAssembleGrid = ({
       >
         {/* Uniform Aspect-Ratio Image Container */}
         <div className="w-full aspect-[4/3] overflow-hidden rounded-sm bg-neutral-900 relative shadow-lg">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <Image
             height={200}
             width={200}
@@ -200,7 +199,7 @@ const ScrollAssembleGrid = ({
   return (
     <section
       ref={sectionRef}
-      className={`relative h-[calc(100dvh-80px)] w-full overflow-hidden p-4 md:p-8 flex flex-col justify-between ${className}`}
+      className={`relative min-h-[100dvh] w-full overflow-hidden p-4 md:p-8 flex flex-col justify-between ${className}`}
     >
       {/* Background Media */}
       {backgroundVideo ? (
@@ -214,7 +213,6 @@ const ScrollAssembleGrid = ({
           aria-hidden="true"
         />
       ) : backgroundImage ? (
-        // eslint-disable-next-line @next/next/no-img-element
         <Image
           height={200}
           width={200}
@@ -233,13 +231,13 @@ const ScrollAssembleGrid = ({
         aria-hidden="true"
       />
 
-      {/* Central Absolute Heading using TextReveal */}
+      {/* Section Header at Top (Prevents overlapping cards) */}
       {heading && (
-        <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-4">
+        <div className="relative z-20 w-full flex items-center justify-center pt-4 pb-2 px-4">
           {typeof heading === "string" ? (
             <TextReveal
-              className={`text-center uppercase font-black text-primary tracking-tight ${headingClassName}`}
-              start="top 75%"
+              className={`text-center uppercase font-black text-[#C59B6D] tracking-tight ${headingClassName}`}
+              start="top 85%"
               end="top 30%"
               once={false}
             >
@@ -257,7 +255,7 @@ const ScrollAssembleGrid = ({
       </div>
 
       {/* Bottom Row Cards */}
-      <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-x-[1.05rem] md:gap-x-[1.575rem] gap-y-4 md:gap-y-6 w-full pb-2">
+      <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-x-[1.05rem] md:gap-x-[1.575rem] gap-y-4 md:gap-y-6 w-full pb-4">
         {bottomRowItems.map((item, i) => renderCard(item, i + 4))}
       </div>
     </section>

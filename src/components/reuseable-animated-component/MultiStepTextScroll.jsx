@@ -139,11 +139,11 @@ const MultiStepTextScroll = ({ data = [], bgColor = "#F9F8F5" }) => {
       style={{ backgroundColor: bgColor }}
     >
       {/* 1. Numbers Indicator (Sliding Bottom-to-Top Fill Reveal) */}
-      <div className="absolute top-[14vh] md:top-[16vh] w-full flex justify-center gap-8 md:gap-16 z-20 px-4">
+      <div className="absolute top-[12vh] md:top-[16vh] w-full flex justify-center gap-6 md:gap-16 z-20 px-4">
         {data.map((step, i) => (
           <div
             key={i}
-            className="step-number-indicator relative inline-flex items-center text-3xl md:text-5xl font-black font-mono select-none"
+            className="step-number-indicator relative inline-flex items-center text-2xl sm:text-4xl md:text-5xl font-black font-mono select-none"
           >
             {/* Base Muted Number Text */}
             <span className="text-neutral-300">
@@ -163,34 +163,41 @@ const MultiStepTextScroll = ({ data = [], bgColor = "#F9F8F5" }) => {
         ))}
       </div>
 
-      {/* 2. Text Content Stack (Perfectly Vertically Centered) */}
-      <div className="relative w-full max-w-7xl h-[55vh] flex items-center justify-center z-10 mt-[8vh]">
+      {/* 2. Text Content Stack (Perfectly Vertically Centered with Word Grouping) */}
+      <div className="relative w-full max-w-7xl h-[60vh] flex items-center justify-center z-10 mt-[6vh]">
         {data.map((step, i) => (
           <div
             key={i}
             className="step-content-section absolute inset-0 w-full flex flex-col items-center justify-center text-center px-4"
           >
-            <h1 className="step-title text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-black uppercase tracking-tighter leading-none text-[#121212] will-change-transform flex flex-wrap justify-center">
-              {step.title.split("").map((char, charIdx) => (
+            <h1 className="step-title text-4xl sm:text-6xl md:text-8xl lg:text-[7rem] font-black uppercase tracking-tighter leading-tight text-[#121212] will-change-transform flex flex-wrap justify-center gap-x-[0.3em]">
+              {step.title.split(" ").map((word, wordIdx) => (
                 <span
-                  key={charIdx}
-                  className="char-item inline-block will-change-transform"
+                  key={wordIdx}
+                  className="inline-block whitespace-nowrap"
                 >
-                  {char === " " ? "\u00A0" : char}
+                  {word.split("").map((char, charIdx) => (
+                    <span
+                      key={charIdx}
+                      className="char-item inline-block will-change-transform"
+                    >
+                      {char}
+                    </span>
+                  ))}
                 </span>
               ))}
             </h1>
 
             {/* Sub-features Grid */}
             {step.features && step.features.length > 0 && (
-              <div className="flex flex-wrap justify-center gap-4 md:gap-10 mt-8 md:mt-12 w-full max-w-5xl">
+              <div className="flex flex-wrap justify-center gap-3 md:gap-10 mt-6 md:mt-12 w-full max-w-5xl">
                 {step.features.map((feature, idx) => (
                   <div
                     key={idx}
-                    className="step-feature-item flex flex-col items-center gap-2 will-change-transform"
+                    className="step-feature-item flex flex-col items-center gap-1.5 md:gap-2 will-change-transform"
                   >
                     <span className="w-2 h-2 bg-[#C59B6D] rounded-full"></span>
-                    <p className="text-sm md:text-base font-semibold text-neutral-600 uppercase tracking-widest max-w-[200px]">
+                    <p className="text-xs sm:text-sm md:text-base font-semibold text-neutral-600 uppercase tracking-widest max-w-[220px]">
                       {feature}
                     </p>
                   </div>
