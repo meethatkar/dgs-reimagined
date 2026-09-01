@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
 import { useLoading } from "@/context/Loading.context";
+import DualPortalGateway from "@/components/pages/Home/hero/DualPortalGateway";
 import Preloader from "@/components/reuseable-animated-component/Loader";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
+import Navbar from "@/components/navbar/Navbar";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -57,6 +58,7 @@ export default function PageWrapper() {
         }`}
       >
         <Navbar />
+        <DualPortalGateway />
         <Footer />
       </div>
     </main>
