@@ -8,7 +8,14 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, SplitText);
 }
 
-const TextReveal = ({ children, className }) => {
+const TextReveal = ({
+  children,
+  className,
+  start = "top 85%",
+  end = "top 50%",
+  scrub = true,
+  type = "words, chars",
+}) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -17,11 +24,17 @@ const TextReveal = ({ children, className }) => {
     const ctx = gsap.context(() => {
       // 1. Split the text into characters and words
       const split = new SplitText(containerRef.current, {
-        type: "words, chars",
+        type,
       });
 
+      const targetElements = split.chars?.length
+        ? split.chars
+        : split.words?.length
+          ? split.words
+          : split.lines;
+
       // 2. Animate the characters on scroll
-      gsap.from(split.chars, {
+      gsap.from(targetElements, {
         y: 40, // Reduced slightly from 100 to keep it elegant and tight
         autoAlpha: 0,
         duration: 0.8,
@@ -32,17 +45,18 @@ const TextReveal = ({ children, className }) => {
         },
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 85%", // Triggers when the top of the text hits 85% down the screen
-          end: "top 50%",
+          start, // Triggers based on prop
+          end,
           once: true, // We only want it to reveal once for a clean UX
-          scrub: true,
+          scrub,
+          markers: true,
         },
       });
     }, containerRef);
 
     // 3. Crucial for Next.js: Revert the split and animation on unmount
     return () => ctx.revert();
-  }, []);
+  }, [start, end, scrub, type]);
 
   return (
     <div ref={containerRef} className={className}>
