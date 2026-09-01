@@ -11,11 +11,11 @@ const Portal = ({
 }) => {
   const alignClass =
     alignment === "left"
-      ? "md:justify-start md:pl-12"
-      : "md:justify-end md:pr-12";
+      ? "lg:justify-start lg:pl-8 xl:pl-12"
+      : "lg:justify-end lg:pr-8 xl:pr-12";
   return (
     <div
-      className={`relative w-full h-[calc(100vh-80px)] md:h-full md:w-[38%] group cursor-pointer overflow-hidden ${alignment === "left" ? "md:rounded-r-[40px]" : "md:rounded-l-[40px]"}`}
+      className={`relative w-full h-[calc(100vh-80px)] lg:h-full lg:w-[38%] group cursor-pointer overflow-hidden ${alignment === "left" ? "lg:rounded-r-[40px]" : "lg:rounded-l-[40px]"}`}
     >
       {/* Background Image with Zoom Effect */}
       <div
@@ -28,7 +28,7 @@ const Portal = ({
 
       {/* Content Container */}
       <div
-        className={`absolute bottom-8 md:bottom-10 z-10 w-full px-6 md:px-0 flex justify-start ${alignClass}`}
+        className={`absolute bottom-8 lg:bottom-10 z-10 w-full px-6 lg:px-0 flex justify-start ${alignClass}`}
       >
         <div className="transform transition-transform duration-700 ease-out group-hover:-translate-y-4">
           <HeroTextCard
@@ -44,7 +44,7 @@ const Portal = ({
 
 const DualPortalGateway = () => {
   return (
-    <section className="relative w-full flex flex-col md:flex-row justify-between overflow-hidden bg-white md:h-[calc(100vh-104px)]">
+    <section className="relative w-full max-w-[1900px] mx-auto flex flex-col lg:flex-row justify-between overflow-hidden bg-white lg:h-[calc(100vh-104px)]">
       {/* Left Portal */}
       <Portal
         image="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80"
@@ -55,7 +55,7 @@ const DualPortalGateway = () => {
       />
 
       {/* Center Flex Column */}
-      <div className="hidden md:flex flex-1 items-center justify-center px-4 z-10">
+      <div className="hidden lg:flex flex-1 items-center justify-center px-4 z-10">
         <HeroCenterCard
           subtitle="CRAFTING LANDMARKS"
           title={

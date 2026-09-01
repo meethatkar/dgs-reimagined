@@ -7,6 +7,7 @@ import Preloader from "@/components/reuseable-animated-component/Loader";
 import Footer from "@/components/Footer";
 import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
 import Navbar from "@/components/navbar/Navbar";
+import MotiveSection from "@/components/pages/Home/MotiveSection";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -59,6 +60,9 @@ export default function PageWrapper() {
       >
         <Navbar />
         <DualPortalGateway />
+
+        <MotiveSection />
+        <div className="h-screen bg-green-600"></div>
         <Footer />
       </div>
     </main>
