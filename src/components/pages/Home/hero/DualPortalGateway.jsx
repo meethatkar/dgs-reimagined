@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import HeroTextCard from "./HeroTextCard";
 import HeroCenterCard from "./HeroCenterCard";
 
@@ -8,14 +9,16 @@ const Portal = ({
   title,
   description,
   alignment = "left",
+  href = "/",
 }) => {
   const alignClass =
     alignment === "left"
       ? "lg:justify-start lg:pl-8 xl:pl-12"
       : "lg:justify-end lg:pr-8 xl:pr-12";
   return (
-    <div
-      className={`relative w-full h-[calc(100vh-80px)] lg:h-full lg:w-[38%] group cursor-pointer overflow-hidden ${
+    <Link
+      href={href}
+      className={`relative block w-full h-[calc(100vh-80px)] lg:h-full lg:w-[38%] group cursor-pointer overflow-hidden ${
         alignment === "left" ? "lg:rounded-r-[40px]" : "lg:rounded-l-[40px]"
       }`}
     >
@@ -45,17 +48,18 @@ const Portal = ({
           />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
 const DualPortalGateway = () => {
   return (
     <section className="relative w-full max-w-[1900px] mx-auto flex flex-col lg:flex-row justify-between overflow-hidden bg-white lg:h-[calc(100vh-104px)]">
-      {/* Left Portal */}
+      {/* Left Portal: DGS BUILDERS -> /builder */}
       <Portal
+        href="/builder"
         image="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=75"
-        subtitle="DGS GROUPS"
+        subtitle="DGS BUILDERS"
         title="Mr. Brahamdev Shukla"
         description="Redefining affordable housing through architectural excellence and community-centric living."
         alignment="left"
@@ -77,10 +81,11 @@ const DualPortalGateway = () => {
         />
       </div>
 
-      {/* Right Portal */}
+      {/* Right Portal: DGS RETAILERS -> /retailer */}
       <Portal
+        href="/retailer"
         image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=75"
-        subtitle="DGS RETAILS"
+        subtitle="DGS RETAILERS"
         title="Mr. Surajdev Shukla"
         description="Crafting luxurious living spaces with prime locations and world-class amenities."
         alignment="right"

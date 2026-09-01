@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end border-b border-neutral-800 pb-12 mb-12 gap-8">
           <div className="max-w-xl">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 text-white">
-              DGS <span className="text-[#C59B6D]">Group</span>
+              DGS <span className="text-primary">Group</span>
             </h2>
             <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
               Crafting Mumbai&apos;s skyline with three decades of trust.
@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
           <Link
             href="/contact"
-            className="group relative inline-flex items-center justify-center px-8 py-4 bg-[#C59B6D] text-black text-sm font-bold uppercase tracking-widest overflow-hidden rounded-sm transition-all hover:bg-white"
+            className="group relative inline-flex items-center justify-center px-8 py-4 bg-primary text-black text-sm font-bold uppercase tracking-widest overflow-hidden rounded-sm transition-all hover:bg-white"
           >
             Start Your Journey
           </Link>
@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Column 1: Corporate */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-[#C59B6D] text-xs font-bold tracking-[0.2em] uppercase mb-2">
+            <h4 className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2">
               Corporate
             </h4>
             <Link
@@ -44,7 +44,7 @@ const Footer = () => {
               href="/"
               className="text-neutral-400 hover:text-white transition-colors text-sm"
             >
-              terms 30-Year Legacy
+              30-Year Legacy
             </Link>
             <Link
               href="/"
@@ -67,25 +67,25 @@ const Footer = () => {
             </h4>
             <Link
               href="/builders"
-              className="text-neutral-400 hover:text-[#C59B6D] transition-colors text-sm"
+              className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Residential Overview
             </Link>
             <Link
               href="/projects?type=residential&status=ongoing"
-              className="text-neutral-400 hover:text-[#C59B6D] transition-colors text-sm"
+              className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Ongoing Projects
             </Link>
             <Link
               href="/projects?type=residential&status=completed"
-              className="text-neutral-400 hover:text-[#C59B6D] transition-colors text-sm"
+              className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Completed Projects
             </Link>
             <Link
               href="/builders"
-              className="text-neutral-400 hover:text-[#C59B6D] transition-colors text-sm"
+              className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Lifestyle Amenities
             </Link>
@@ -98,25 +98,25 @@ const Footer = () => {
             </h4>
             <Link
               href="/retailers"
-              className="text-neutral-400 hover:text-[#C59B6D] transition-colors text-sm"
+              className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Commercial Overview
             </Link>
             <Link
               href="/projects?type=commercial"
-              className="text-neutral-400 hover:text-[#C59B6D] transition-colors text-sm"
+              className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Retail Spaces
             </Link>
             <Link
               href="/projects?type=industrial"
-              className="text-neutral-400 hover:text-[#C59B6D] transition-colors text-sm"
+              className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Industrial Hubs
             </Link>
             <Link
               href="/retailers"
-              className="text-neutral-400 hover:text-[#C59B6D] transition-colors text-sm"
+              className="text-neutral-400 hover:text-primary transition-colors text-sm"
             >
               Leasing Enquiries
             </Link>
@@ -124,7 +124,7 @@ const Footer = () => {
 
           {/* Column 4: Contact HQ */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-[#C59B6D] text-xs font-bold tracking-[0.2em] uppercase mb-2">
+            <h4 className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-2">
               Mumbai HQ
             </h4>
             <p className="text-neutral-400 text-sm leading-relaxed">
@@ -136,13 +136,13 @@ const Footer = () => {
             </p>
             <a
               href="mailto:info@dgsgroup.com"
-              className="text-white hover:text-[#C59B6D] transition-colors text-sm mt-2"
+              className="text-white hover:text-primary transition-colors text-sm mt-2"
             >
               info@dgsgroup.com
             </a>
             <a
               href="tel:+912212345678"
-              className="text-white hover:text-[#C59B6D] transition-colors text-sm"
+              className="text-white hover:text-primary transition-colors text-sm"
             >
               +91 22 1234 5678
             </a>

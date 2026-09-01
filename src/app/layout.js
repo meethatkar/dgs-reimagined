@@ -2,6 +2,9 @@ import { Cinzel, Poppins } from "next/font/google";
 import "./globals.css";
 import { LoadingProvider } from "@/context/Loading.context";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import PageTransition from "@/components/reuseable-animated-component/PageTransition";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/navbar/Navbar";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -18,7 +21,8 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "DGS Groups",
-  description: "30 Years of Trust. Affordable Luxury. Redefining Mumbai's Skyline.",
+  description:
+    "30 Years of Trust. Affordable Luxury. Redefining Mumbai's Skyline.",
 };
 
 export default function RootLayout({ children }) {
@@ -29,7 +33,13 @@ export default function RootLayout({ children }) {
     >
       <body className="font-poppins min-h-full flex flex-col">
         <LoadingProvider>
-          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          <SmoothScrollProvider>
+            <PageTransition barClassName="bg-primary">
+              <Navbar />
+              {children}
+              <Footer />
+            </PageTransition>
+          </SmoothScrollProvider>
         </LoadingProvider>
       </body>
     </html>

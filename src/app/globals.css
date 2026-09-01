@@ -3,8 +3,8 @@
 @theme {
   --font-cinzel: var(--font-cinzel);
   --font-poppins: var(--font-poppins);
-  --color-primary: #c07b45;
-  --color-primary-hover: #a66432;
+  --color-primary: #C59B6D;
+  --color-primary-hover: #B08658;
 }
 
 @layer base {

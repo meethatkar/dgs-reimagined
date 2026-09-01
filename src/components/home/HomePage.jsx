@@ -58,7 +58,6 @@ export default function HomePage() {
           isLoading ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
-        <Navbar />
         <div id="hero" className="w-full">
           <DualPortalGateway />
         </div>
@@ -80,7 +79,6 @@ export default function HomePage() {
         <div id="reviews" className="w-full">
           <Reviews />
         </div>
-        <Footer />
       </div>
     </main>
   );

@@ -154,7 +154,7 @@ const ScrollAssembleGrid = ({
 
             {/* Content below image */}
             <div className="mt-2 md:mt-3 flex flex-col items-center text-center px-1">
-              <span className="text-[#C59B6D] font-bold text-xs md:text-sm tracking-wide">
+              <span className="text-primary font-bold text-xs md:text-sm tracking-wide">
                 {item.year}
               </span>
               <h3 className="text-neutral-800 font-semibold text-xs sm:text-sm md:text-base leading-snug mt-0.5 max-w-[95%]">
@@ -242,7 +242,7 @@ const ScrollAssembleGrid = ({
         <div className="md:hidden relative z-20 w-full flex items-center justify-center pt-4 pb-2 px-4">
           {typeof heading === "string" ? (
             <TextReveal
-              className={`text-center uppercase font-black text-[#C59B6D] tracking-tight ${headingClassName}`}
+              className={`text-center uppercase font-black text-primary tracking-tight ${headingClassName}`}
               start="top 85%"
               end="top 30%"
               once={false}
@@ -260,7 +260,7 @@ const ScrollAssembleGrid = ({
         <div className="hidden md:flex absolute inset-0 z-20 items-center justify-center pointer-events-none px-4">
           {typeof heading === "string" ? (
             <TextReveal
-              className={`text-center uppercase font-black text-[#C59B6D] tracking-tight ${headingClassName}`}
+              className={`text-center uppercase font-black text-primary tracking-tight ${headingClassName}`}
               start="top 75%"
               end="top 30%"
               once={false}

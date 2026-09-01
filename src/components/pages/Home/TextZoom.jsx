@@ -23,7 +23,7 @@ const TextZoom = () => {
       batches={dgsBatches}
       bgColor="#F9F8F5"
       textColor="#121212"
-      subTextColor="#C59B6D"
+      subTextColor="var(--color-primary, #C59B6D)"
     />
   );
 };

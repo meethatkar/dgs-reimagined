@@ -196,7 +196,7 @@ const MultiStepTextScroll = ({ data = [], bgColor = "#F9F8F5" }) => {
                     key={idx}
                     className="step-feature-item flex flex-col items-center gap-1.5 md:gap-2 will-change-transform"
                   >
-                    <span className="w-2 h-2 bg-[#C59B6D] rounded-full"></span>
+                    <span className="w-2 h-2 bg-primary rounded-full"></span>
                     <p className="text-xs sm:text-sm md:text-base font-semibold text-neutral-600 uppercase tracking-widest max-w-[220px]">
                       {feature}
                     </p>
