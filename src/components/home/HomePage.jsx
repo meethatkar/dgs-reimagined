@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
 import Navbar from "@/components/navbar/Navbar";
 import MotiveSection from "@/components/pages/Home/MotiveSection";
+import CountUpStats from "@/components/pages/Home/countup/CountUpStats";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -62,6 +63,7 @@ export default function HomePage() {
         <DualPortalGateway />
 
         <MotiveSection />
+        <CountUpStats />
         <div className="h-screen bg-green-600"></div>
         <Footer />
       </div>
