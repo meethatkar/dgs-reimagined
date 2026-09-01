@@ -94,14 +94,6 @@ const Reviews = () => {
       id="reviews"
       className="w-full py-20 lg:py-32 bg-neutral-50 border-t border-neutral-200/60"
     >
-      {/* Head preconnect hints for YouTube domains once preloading starts */}
-      {isPreloaded && (
-        <React.Fragment>
-          <link rel="preconnect" href="https://www.youtube-nocookie.com" />
-          <link rel="preconnect" href="https://www.google.com" />
-        </React.Fragment>
-      )}
-
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
           {/* Left Side: Text & Context */}

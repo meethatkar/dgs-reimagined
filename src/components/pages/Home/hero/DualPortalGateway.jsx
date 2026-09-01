@@ -15,17 +15,19 @@ const Portal = ({
       : "lg:justify-end lg:pr-8 xl:pr-12";
   return (
     <div
-      className={`relative w-full h-[calc(100vh-80px)] lg:h-full lg:w-[38%] group cursor-pointer overflow-hidden ${alignment === "left" ? "lg:rounded-r-[40px]" : "lg:rounded-l-[40px]"}`}
+      className={`relative w-full h-[calc(100vh-80px)] lg:h-full lg:w-[38%] group cursor-pointer overflow-hidden ${
+        alignment === "left" ? "lg:rounded-r-[40px]" : "lg:rounded-l-[40px]"
+      }`}
     >
       {/* Background Image with Zoom Effect */}
       <Image
         src={image}
         alt={title}
         fill
-        sizes="(max-width: 1024px) 100vw, 38vw"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 38vw"
         className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
         priority={alignment === "left"}
-        quality={75}
+        quality={70}
       />
 
       {/* Overlay to ensure text readability */}
@@ -52,7 +54,7 @@ const DualPortalGateway = () => {
     <section className="relative w-full max-w-[1900px] mx-auto flex flex-col lg:flex-row justify-between overflow-hidden bg-white lg:h-[calc(100vh-104px)]">
       {/* Left Portal */}
       <Portal
-        image="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80"
+        image="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=75"
         subtitle="DGS GROUPS"
         title="Mr. Brahamdev Shukla"
         description="Redefining affordable housing through architectural excellence and community-centric living."
@@ -77,7 +79,7 @@ const DualPortalGateway = () => {
 
       {/* Right Portal */}
       <Portal
-        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
+        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=75"
         subtitle="DGS RETAILS"
         title="Mr. Surajdev Shukla"
         description="Crafting luxurious living spaces with prime locations and world-class amenities."

@@ -87,7 +87,7 @@ const ScrollAssembleGrid = ({
           tl.to(
             overlayRef.current,
             { opacity: overlayOpacity, duration: 0.4, ease: "none" },
-            0,
+            0
           );
         }
 
@@ -102,11 +102,11 @@ const ScrollAssembleGrid = ({
             duration: 1,
             ease: "power2.out",
           },
-          0,
+          0
         );
 
         return () => {};
-      },
+      }
     );
 
     return () => {
@@ -146,6 +146,8 @@ const ScrollAssembleGrid = ({
                 width={200}
                 src={item.image}
                 alt={item.title || item.label || ""}
+                sizes="(max-width: 768px) 45vw, 20vw"
+                quality={70}
                 className="w-full h-full object-contain p-1 transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -179,6 +181,8 @@ const ScrollAssembleGrid = ({
             width={200}
             src={item.image}
             alt={item.title || item.label || ""}
+            sizes="(max-width: 768px) 45vw, 20vw"
+            quality={70}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
@@ -219,6 +223,8 @@ const ScrollAssembleGrid = ({
           className="absolute inset-0 h-full w-full object-cover"
           src={backgroundImage}
           alt=""
+          sizes="100vw"
+          quality={70}
           aria-hidden="true"
         />
       ) : null}
