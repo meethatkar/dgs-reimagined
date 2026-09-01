@@ -33,5 +33,3 @@ The Buying Journey: The winding SVG path showing the step-by-step process of inv
 Customer Reviews: Horizontal draggable carousel of star ratings.
 
 Contact Gateway: The "Talk, Meet, Write" form to capture the lead.
-
-Business Footer: Specific contact details and RERA numbers.
