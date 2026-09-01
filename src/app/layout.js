@@ -1,6 +1,7 @@
 import { Cinzel, Poppins } from "next/font/google";
 import "./globals.css";
 import { LoadingProvider } from "@/context/Loading.context";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -27,7 +28,9 @@ export default function RootLayout({ children }) {
       className={`${cinzel.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="font-poppins min-h-full flex flex-col">
-        <LoadingProvider>{children}</LoadingProvider>
+        <LoadingProvider>
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        </LoadingProvider>
       </body>
     </html>
   );

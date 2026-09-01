@@ -7,13 +7,13 @@ Cinematic Tagline: Massive typography acting as a video mask (e.g., "SHAPING MUM
 
 The Scale of Excellence (Count-Up): The high-impact data snapshot (30+ Years, 75 Lacs Sq. Ft.) proving their legacy immediately after the tagline. [DONE]
 
-Pillars of Legacy (Why Us): A clean bento-box grid highlighting construction quality, sustainability, and trust across the entire DGS Group. 
+Pillars of Legacy (Why Us): A clean bento-box grid highlighting construction quality, sustainability, and trust across the entire DGS Group.  [DONE]
 
 Awards & Milestones Marquee: The infinite horizontal scroll of trophies to cement their industry dominance. [DONE]
 
-YouTube Video Reviews: The high-performance, click-to-play video components. [DONE]
+Text Taglines Zoom Effect. [DONE]
 
-Text Taglines Zoom Effect.
+YouTube Video Reviews: The high-performance, click-to-play video components. [DONE]
 
 Global Footer: Clean routing links and overarching corporate info.
 

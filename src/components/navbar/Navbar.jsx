@@ -1,5 +1,7 @@
 "use client";
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import Logo from "../Logo";
 import Navbtns from "./NavBtns";
 import Button from "../ui/Button";
@@ -7,32 +9,62 @@ import MobileNav from "./MobileNav";
 import Cross from "../../../public/icons/Cross";
 import Menu from "../../../public/icons/Menu";
 
-const navItems = [
-  { label: "Projects", target: "#projects" },
-  { label: "Reviews", target: "#reviews" },
-  { label: "About", target: "#about" },
-  { label: "Blogs", target: "#blogs" },
+// 1. Navigation items for Main Landing Page (/)
+const mainHomeNavItems = [
+  { label: "Motive", target: "#motive" },
+  { label: "Legacy", target: "#legacy" },
   { label: "Awards", target: "#awards" },
+  { label: "About Us", target: "#about" },
+  { label: "Reviews", target: "#reviews" },
+];
+
+// 2. Navigation items for DGS Builders Page (/builder or /builders)
+const builderNavItems = [
+  { label: "Overview", target: "#overview" },
+  { label: "Residential", target: "#projects" },
+  { label: "Amenities", target: "#amenities" },
+  { label: "Connectivity", target: "#connectivity" },
+];
+
+// 3. Navigation items for DGS Retailers Page (/retailer or /retailers)
+const retailerNavItems = [
+  { label: "Overview", target: "#overview" },
+  { label: "Commercial", target: "#commercial" },
+  { label: "Industrial", target: "#industrial" },
+  { label: "Leasing", target: "#leasing" },
+];
+
+// 4. Fallback Navigation items for sub-pages
+const defaultNavItems = [
+  { label: "Home", target: "/" },
+  { label: "Builders", target: "/builder" },
+  { label: "Retailers", target: "/retailer" },
+  { label: "Awards", target: "/#awards" },
 ];
 
 const Navbar = ({ onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Conditionally select navigation items based on current URL path
+  const getNavItems = () => {
+    if (pathname === "/") {
+      return mainHomeNavItems;
+    }
+    if (pathname?.startsWith("/builder")) {
+      return builderNavItems;
+    }
+    if (pathname?.startsWith("/retailer")) {
+      return retailerNavItems;
+    }
+    return defaultNavItems;
+  };
+
+  const navItems = getNavItems();
 
   const handleLinkClick = (item) => {
     setMobileMenuOpen(false);
-
-    // Smooth scroll using Lenis or fallback to native scrollIntoView
-    if (onNavigate) {
-      onNavigate(item.target);
-    } else if (lenis) {
-      lenis.scrollTo(item.target, {
-        duration: 1.2,
-        offset: -40,
-      });
-    } else {
-      const element = document.querySelector(item.target);
-      element?.scrollIntoView({ behavior: "smooth" });
-    }
+    // Disabled scrollTo action as requested
   };
 
   return (
@@ -45,7 +77,7 @@ const Navbar = ({ onNavigate }) => {
             onClick={() => handleLinkClick({ label: null, target: "#hero" })}
           />
 
-          {/* DESKTOP & TABLET: Nav Links */}
+          {/* DESKTOP & TABLET: Nav Links (Conditionally rendered by route) */}
           <div className="hidden md:flex items-center gap-2 lg:gap-3">
             {navItems.map((item) => (
               <Navbtns

@@ -23,8 +23,6 @@ export default function HomePage() {
 
   useEffect(() => {
     if (!isLoading) {
-      // Touch/iOS devices need a bit longer for layout (pin spacers, vh) to
-      // settle after the loader exits. [FOR SCROLLTRIGGER]
       const isTouchDevice =
         typeof window !== "undefined" &&
         window.matchMedia("(pointer: coarse)").matches;
@@ -42,8 +40,6 @@ export default function HomePage() {
       id="main-wrapper"
       className="relative flex flex-col items-center w-full"
     >
-      {/* Preloader is always mounted; it fades itself to opacity:0 and calls
-          onComplete once — it never gets reverted/reset. */}
       <Preloader
         words={[
           "30 Years of Trust.",
@@ -53,7 +49,6 @@ export default function HomePage() {
         backgroundColor="#1c1c1c"
         circleColor="#F9F8F5"
         onComplete={() => {
-          console.log("DONE");
           setIsLoading(false);
         }}
       />
@@ -64,14 +59,27 @@ export default function HomePage() {
         }`}
       >
         <Navbar />
-        <DualPortalGateway />
-
-        <MotiveSection />
-        <CountUpStats />
-        <Awards />
-        <AboutUs />
-        <Reviews />
-        <TextZoom />
+        <div id="hero" className="w-full">
+          <DualPortalGateway />
+        </div>
+        <div id="motive" className="w-full">
+          <MotiveSection />
+        </div>
+        <div id="legacy" className="w-full">
+          <CountUpStats />
+        </div>
+        <div id="awards" className="w-full">
+          <Awards />
+        </div>
+        <div id="about" className="w-full">
+          <AboutUs />
+        </div>
+        <div id="zoom" className="w-full">
+          <TextZoom />
+        </div>
+        <div id="reviews" className="w-full">
+          <Reviews />
+        </div>
         <Footer />
       </div>
     </main>

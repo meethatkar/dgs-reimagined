@@ -237,13 +237,31 @@ const ScrollAssembleGrid = ({
         aria-hidden="true"
       />
 
-      {/* Section Header at Top (Prevents overlapping cards) */}
+      {/* Mobile Heading (Top position to avoid card overlap) */}
       {heading && (
-        <div className="relative z-20 w-full flex items-center justify-center pt-4 pb-2 px-4">
+        <div className="md:hidden relative z-20 w-full flex items-center justify-center pt-4 pb-2 px-4">
           {typeof heading === "string" ? (
             <TextReveal
               className={`text-center uppercase font-black text-[#C59B6D] tracking-tight ${headingClassName}`}
               start="top 85%"
+              end="top 30%"
+              once={false}
+            >
+              {heading}
+            </TextReveal>
+          ) : (
+            heading
+          )}
+        </div>
+      )}
+
+      {/* Desktop Heading (Central absolute position between both rows) */}
+      {heading && (
+        <div className="hidden md:flex absolute inset-0 z-20 items-center justify-center pointer-events-none px-4">
+          {typeof heading === "string" ? (
+            <TextReveal
+              className={`text-center uppercase font-black text-[#C59B6D] tracking-tight ${headingClassName}`}
+              start="top 75%"
               end="top 30%"
               once={false}
             >
