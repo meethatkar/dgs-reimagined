@@ -1,9 +1,9 @@
 ******1. Main Global Landing Page (/)
 Goal: Establish massive corporate authority and route the user to their desired division.
 
-Dual-Portal Gateway Hero: The 50/50 split-screen with cinematic hover and click-to-enter transitions.
+Dual-Portal Gateway Hero: The 50/50 split-screen with cinematic hover and click-to-enter transitions. [DONE]
 
-Cinematic Tagline: Massive typography acting as a video mask (e.g., "SHAPING MUMBAI'S FUTURE").
+Cinematic Tagline: Massive typography acting as a video mask (e.g., "SHAPING MUMBAI'S FUTURE"). [DONE]
 
 The Scale of Excellence (Count-Up): The high-impact data snapshot (30+ Years, 75 Lacs Sq. Ft.) proving their legacy immediately after the tagline.
 

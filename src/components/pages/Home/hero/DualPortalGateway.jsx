@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 import HeroTextCard from "./HeroTextCard";
 import HeroCenterCard from "./HeroCenterCard";
 
@@ -18,10 +18,15 @@ const Portal = ({
       className={`relative w-full h-[calc(100vh-80px)] lg:h-full lg:w-[38%] group cursor-pointer overflow-hidden ${alignment === "left" ? "lg:rounded-r-[40px]" : "lg:rounded-l-[40px]"}`}
     >
       {/* Background Image with Zoom Effect */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] ease-out group-hover:scale-110"
-        style={{ backgroundImage: `url(${image})` }}
-      ></div>
+      <Image
+        src={image}
+        alt={title}
+        fill
+        sizes="(max-width: 1024px) 100vw, 38vw"
+        className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+        priority={alignment === "left"}
+        quality={75}
+      />
 
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>

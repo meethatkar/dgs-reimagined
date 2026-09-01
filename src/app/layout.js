@@ -5,12 +5,14 @@ import { LoadingProvider } from "@/context/Loading.context";
 const cinzel = Cinzel({
   variable: "--font-cinzel",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata = {

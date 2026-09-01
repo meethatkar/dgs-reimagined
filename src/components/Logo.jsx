@@ -17,10 +17,12 @@ const Logo = ({ variant = "lg", className = "", alt = "Logo", onClick }) => {
     >
       <Image
         src="/Logo.png"
-        height={200}
-        width={200}
+        height={72}
+        width={90}
         alt={alt}
+        sizes="(max-width: 768px) 45px, 90px"
         className={`object-contain ${sizeClass}`}
+        priority
       />
     </div>
   );
