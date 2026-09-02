@@ -11,13 +11,13 @@ const ReviewsTextContent = () => {
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-neutral-900 leading-tight mb-4">
         We value our <br />
         <span className="italic font-light text-neutral-500">
-          customer's feedback.
+          customer&apos;s feedback.
         </span>
       </h2>
       <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-medium mb-8">
         Hear directly from the families who have found their dream homes with
-        DGS Group. Our commitment to affordable luxury and timely possession
-        has helped thousands of Mumbaikars turn their real estate dreams into
+        DGS Group. Our commitment to affordable luxury and timely possession has
+        helped thousands of Mumbaikars turn their real estate dreams into
         reality.
       </p>
 
@@ -79,7 +79,7 @@ const Reviews = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(videoContainerRef.current);
@@ -108,7 +108,9 @@ const Reviews = () => {
               {/* Thumbnail Image View */}
               <div
                 className={`absolute inset-0 w-full h-full flex items-center justify-center transition-opacity duration-700 ${
-                  isVideoPlaying ? "opacity-0 pointer-events-none" : "opacity-100"
+                  isVideoPlaying
+                    ? "opacity-0 pointer-events-none"
+                    : "opacity-100"
                 }`}
               >
                 <Image
@@ -124,7 +126,9 @@ const Reviews = () => {
               {(isPreloaded || isVideoPlaying) && (
                 <iframe
                   className={`absolute inset-0 w-full h-full transition-opacity duration-700 ${
-                    isVideoPlaying ? "opacity-100" : "opacity-0 pointer-events-none"
+                    isVideoPlaying
+                      ? "opacity-100"
+                      : "opacity-0 pointer-events-none"
                   }`}
                   src={`https://www.youtube-nocookie.com/embed/${youtubeVideoId}?${
                     isVideoPlaying ? "autoplay=1&mute=0" : "autoplay=0&mute=1"

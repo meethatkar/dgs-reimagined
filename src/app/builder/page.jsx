@@ -5,12 +5,14 @@ import Reviews from "@/components/pages/builders/Reviews";
 import ContactSection from "@/components/sections/contact/ContactSection";
 import React from "react";
 import { builderHeroData, builderFounderData } from "@/data/businessData";
+import ProjectSection from "@/components/sections/project/ProjectSection";
 
 export default function BuilderPage() {
   return (
     <main className="w-full min-h-screen bg-white overflow-x-hidden">
       <MainLandingPage data={builderHeroData} />
       <FoundersDesk data={builderFounderData} />
+      <ProjectSection />
       <BuyingProcess />
       <Reviews />
       <div id="contact" className="w-full">
