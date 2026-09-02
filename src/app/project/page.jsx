@@ -9,7 +9,7 @@ export const metadata = {
 export default function ProjectsPage() {
   return (
     <main className="w-full min-h-screen bg-[#F9F8F5]">
-      <div className="pt-16 md:pt-20">
+      <div className="pt-5 lg:pt-10">
         <ProjectsListingSection />
       </div>
     </main>

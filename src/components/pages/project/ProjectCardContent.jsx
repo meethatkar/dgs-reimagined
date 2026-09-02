@@ -1,7 +1,8 @@
 "use client";
-import React, { memo } from "react";
+import { memo } from "react";
 import Pin from "../../../../public/icons/Pin";
 import Arrow from "../../../../public/icons/Arrow";
+import TiltedArrow from "../../../../public/icons/TiltedArrow";
 import Button from "@/components/ui/Button";
 
 const ProjectCardContent = memo(function ProjectCardContent({
@@ -127,14 +128,12 @@ const ProjectCardContent = memo(function ProjectCardContent({
             )}
           </div>
 
-          <Button
-            variant="icon"
-            size="none"
-            ariaLabel="View Project"
-            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full !p-0 bg-white text-black flex items-center justify-center shadow-lg pointer-events-auto shrink-0"
+          <button
+            aria-label="View Project"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white text-neutral-800 flex items-center justify-center shadow-lg pointer-events-auto shrink-0 group/topbtn transition-transform hover:scale-105"
           >
-            <Arrow className="w-5 h-5 -rotate-45" />
-          </Button>
+            <TiltedArrow className="w-5 h-5 transition-transform duration-300 group-hover/topbtn:scale-110" />
+          </button>
         </div>
 
         {/* Bottom text & Price */}

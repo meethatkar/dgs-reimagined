@@ -24,9 +24,12 @@ function ProjectsGrid() {
         <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
           !
         </div>
-        <h3 className="text-xl font-semibold text-neutral-900 mb-2">No Projects Match Your Criteria</h3>
+        <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+          No Projects Match Your Criteria
+        </h3>
         <p className="text-sm text-neutral-500 mb-6">
-          Try resetting your filters or selecting a different location or business type to discover our available developments.
+          Try resetting your filters or selecting a different location or
+          business type to discover our available developments.
         </p>
         <Button variant="primary" onClick={resetFilters} className="mx-auto">
           Clear All Filters
@@ -49,7 +52,10 @@ function ProjectsListingContent() {
   const sectionRef = useRef(null);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#F9F8F5] text-neutral-900 py-12 md:py-20 px-4 sm:px-8">
+    <section
+      ref={sectionRef}
+      className="w-full bg-[#F9F8F5] text-neutral-900 px-4 sm:px-8 pb-5 lg:pb-10"
+    >
       <div className="max-w-7xl mx-auto">
         <ProjectFilterHeader />
         <ProjectsGrid />

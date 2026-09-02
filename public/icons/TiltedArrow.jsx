@@ -1,5 +1,3 @@
-import React from "react";
-
 const TiltedArrow = ({ className = "w-5 h-5" }) => {
   return (
     <svg
