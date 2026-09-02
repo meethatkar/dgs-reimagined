@@ -13,7 +13,7 @@ export const customerReviews = [
     projectName: "SHEETAL INFINITY",
     ownerName: "Meera Rajput",
     unitType: "2 BHK Smart Home",
-    image: "/buildings/sheetal-infinity.jpg",
+    image: "/buildings/sheetail-infinity.jpg",
     quote:
       "From the first site visit to the final handover, the transparency and professionalism of DGS Group were outstanding.",
   },

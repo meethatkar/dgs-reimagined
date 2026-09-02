@@ -19,11 +19,22 @@ const builderData = {
   secondaryHref: "/project",
 };
 
+const builderFounderData = {
+  imageUrl: "/brahmaSir.webp",
+  name: "Mr. Brahmdev Shukla",
+  designation: "Managing Director",
+  eyebrow: "From the Founder's Desk",
+  mainQuote:
+    "We don't just construct buildings; we engineer lifestyles that stand the test of time.",
+  supportText:
+    "Our vision for the Western corridor is rooted in an uncompromising commitment to quality. Every brick laid is a promise kept to the families that choose to call our developments home.",
+};
+
 export default function BuilderPage() {
   return (
     <main className="w-full min-h-screen bg-white overflow-x-hidden">
       <MainLandingPage data={builderData} />
-      <FoundersDesk />
+      <FoundersDesk data={builderFounderData} />
       <BuyingProcess />
       <Reviews />
       <div id="contact" className="w-full">

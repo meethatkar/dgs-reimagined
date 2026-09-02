@@ -1,11 +1,10 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Header from "./Header";
 import HeroText from "./HeroText";
 import CtaButtons from "./CtaButtons";
-import ImageReveal from "./ImageReveal";
-import TextReveal from "@/components/reuseable-animated-component/TextReveal";
 
 const MainLandingPage = ({ data }) => {
   if (!data) return null;
@@ -24,24 +23,26 @@ const MainLandingPage = ({ data }) => {
           onCategoryChange={data.onCategoryChange}
         />
 
-        <TextReveal animateOnMount delay={0.15} type="words" from="start">
-          <div className="flex flex-col flex-grow justify-center py-6">
-            <HeroText title={data.title} description={data.description} />
-            <CtaButtons
-              primaryCta={data.primaryCta}
-              secondaryCta={data.secondaryCta}
-              primaryHref={data.primaryHref || "#contact"}
-              secondaryHref={data.secondaryHref || "/project"}
-            />
-          </div>
-        </TextReveal>
+        <div className="flex flex-col flex-grow justify-center py-6">
+          <HeroText title={data.title} description={data.description} />
+          <CtaButtons
+            primaryCta={data.primaryCta}
+            secondaryCta={data.secondaryCta}
+            primaryHref={data.primaryHref || "#contact"}
+            secondaryHref={data.secondaryHref || "/project"}
+          />
+        </div>
       </div>
 
       {/* RIGHT SECTION (Image) */}
-      <div className="w-full lg:w-[55%] h-[50vh] lg:h-full order-last lg:order-none relative">
-        <ImageReveal
+      <div className="w-full lg:w-[55%] h-[50vh] lg:h-full order-last lg:order-none relative overflow-hidden">
+        <Image
           src={data.imageSrc}
           alt={`${data.currentCategory} showcase`}
+          fill
+          sizes="(max-width: 1024px) 100vw, 55vw"
+          priority
+          className="object-cover w-full h-full"
         />
       </div>
     </main>

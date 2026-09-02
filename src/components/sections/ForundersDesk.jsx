@@ -4,13 +4,9 @@ import React from "react";
 import Image from "next/image";
 import ParallaxScrollEffect from "@/components/reuseable-animated-component/ParallaxScrollEffect";
 
-export default function FoundersDesk({
-  imageUrl,
-  name,
-  designation,
-  mainQuote,
-  supportText,
-}) {
+export default function FoundersDesk({ data }) {
+  if (!data) return null;
+
   return (
     <section className="w-full bg-white py-24 px-6 sm:px-12 relative overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
@@ -29,8 +25,8 @@ export default function FoundersDesk({
             >
               <Image
                 fill
-                src="/brahmaSir.webp"
-                alt="Mr. Brahmdev Shukla - Managing Director"
+                src={data.imageUrl}
+                alt={`${data.name} - ${data.designation}`}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 460px"
                 quality={90}
                 priority
@@ -50,20 +46,17 @@ export default function FoundersDesk({
           <div className="relative z-10">
             {/* Eyebrow Text */}
             <p className="text-[11px] uppercase tracking-[0.3em] text-[#C5A059] font-semibold mb-6">
-              From the Founder&apos;s Desk
+              {data.eyebrow}
             </p>
 
             {/* Main Quote */}
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#1C1C1C] leading-snug mb-8">
-              We don&apos;t just construct buildings; we engineer lifestyles
-              that stand the test of time.
+              {data.mainQuote}
             </h3>
 
             {/* Supporting Text */}
             <p className="text-[#666666] text-sm sm:text-base leading-relaxed mb-10 max-w-md">
-              Our vision for the Western corridor is rooted in an uncompromising
-              commitment to quality. Every brick laid is a promise kept to the
-              families that choose to call our developments home.
+              {data.supportText}
             </p>
 
             {/* Sign-off */}
@@ -71,10 +64,10 @@ export default function FoundersDesk({
               <div className="w-12 h-[1px] bg-[#C5A059]"></div>
               <div>
                 <h4 className="text-lg font-serif text-[#1C1C1C]">
-                  Mr. Brahmdev Shukla
+                  {data.name}
                 </h4>
                 <p className="text-xs uppercase tracking-widest text-[#8A857A] mt-1">
-                  Managing Director
+                  {data.designation}
                 </p>
               </div>
             </div>
