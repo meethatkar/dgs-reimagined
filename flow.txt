@@ -15,7 +15,7 @@ Text Taglines Zoom Effect. [DONE]
 
 YouTube Video Reviews: The high-performance, click-to-play video components. [DONE]
 
-GLOBAL Unique marquee: 
+GLOBAL Unique marquee:  [DONE]
 
 Global Footer: Clean routing links and overarching corporate info. [DONE]
 

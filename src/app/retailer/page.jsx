@@ -1,3 +1,4 @@
+import Reviews from "@/components/pages/retailers/Reviews";
 import BuyingProcess from "@/components/pages/retailers/BuyingProcess";
 import React from "react";
 
@@ -13,6 +14,7 @@ export default function RetailerPage() {
         </p>
       </div>
       <BuyingProcess />
+      <Reviews />
     </main>
   );
 }

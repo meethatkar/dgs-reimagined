@@ -1,4 +1,5 @@
 import BuyingProcess from "@/components/pages/builders/BuyingProcess";
+import Reviews from "@/components/pages/builders/Reviews";
 import React from "react";
 
 export default function BuilderPage() {
@@ -13,6 +14,7 @@ export default function BuilderPage() {
         </p>
       </div>
       <BuyingProcess />
+      <Reviews />
     </main>
   );
 }

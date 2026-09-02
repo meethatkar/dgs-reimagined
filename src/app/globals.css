@@ -3,12 +3,21 @@
 @theme {
   --font-cinzel: var(--font-cinzel);
   --font-poppins: var(--font-poppins);
-  --color-primary: #C59B6D;
-  --color-primary-hover: #B08658;
+  --color-primary: #c59b6d;
+  --color-primary-hover: #b08658;
+}
+
+body {
+  background-color: antiquewhite;
 }
 
 @layer base {
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-cinzel), serif;
   }
   p {
