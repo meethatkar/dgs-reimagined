@@ -11,6 +11,7 @@ import Awards from "../pages/Home/Awards";
 import Reviews from "../pages/Home/Reviews";
 import TextZoom from "../pages/Home/TextZoom";
 import AboutUs from "../pages/Home/AboutUs";
+import MumbaiPresenceMap from "../pages/Home/MumbaiPresenceMap";
 import ContactSection from "../sections/contact/ContactSection";
 
 if (typeof window !== "undefined") {
@@ -65,6 +66,9 @@ export default function HomePage() {
         </div>
         <div id="legacy" className="w-full">
           <CountUpStats />
+        </div>
+        <div id="presence" className="w-full">
+          <MumbaiPresenceMap />
         </div>
         <div id="awards" className="w-full">
           <Awards />
