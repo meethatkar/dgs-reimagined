@@ -15,7 +15,9 @@ Text Taglines Zoom Effect. [DONE]
 
 YouTube Video Reviews: The high-performance, click-to-play video components. [DONE]
 
-Global Footer: Clean routing links and overarching corporate info.
+GLOBAL Unique marquee: 
+
+Global Footer: Clean routing links and overarching corporate info. [DONE]
 
 *****2. Business Landing Pages (/builders & /retailers)
 Goal: Showcase the specific founder, display the projects dynamically, and capture leads.
@@ -28,8 +30,17 @@ Interactive Transit Map: The Virar-to-Churchgate glowing SVG scroll, revealing p
 
 Filterable Project Grid: The animated masonry grid where buyers can sort Ongoing/Completed, BHK, and Area.
 
-The Buying Journey: The winding SVG path showing the step-by-step process of investing with this specific division.
+The Buying Journey: The winding SVG path showing the step-by-step process of investing with this specific division. [DONE]
 
 Customer Reviews: Horizontal draggable carousel of star ratings.
 
 Contact Gateway: The "Talk, Meet, Write" form to capture the lead.
+
+** Project List Page:
+Filters:- business, project status, location, [Future: Amanities, BHK]  
+Feat: on map location pin click it should open project list page with already filtered data of that location.
+DGS-1 Project: project card.
+
+**Project Details Page:
+Old UI with bento grid to show some images of residence, 
+also show show image effect for Amanities (refer from golf website).

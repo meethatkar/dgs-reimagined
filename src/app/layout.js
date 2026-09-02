@@ -5,6 +5,7 @@ import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import PageTransition from "@/components/reuseable-animated-component/PageTransition";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar/Navbar";
+import UniqueMarquee from "@/components/reuseable-animated-component/unique-marquee/UniqueMarquee";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
             <PageTransition barClassName="bg-primary">
               <Navbar />
               {children}
+              <UniqueMarquee />
               <Footer />
             </PageTransition>
           </SmoothScrollProvider>
