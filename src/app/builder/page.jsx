@@ -1,6 +1,7 @@
 import BuyingProcess from "@/components/pages/builders/BuyingProcess";
 import Reviews from "@/components/pages/builders/Reviews";
 import ContactSection from "@/components/sections/contact/ContactSection";
+import FoundersDesk from "@/components/sections/ForundersDesk";
 import React from "react";
 
 export default function BuilderPage() {
@@ -14,6 +15,7 @@ export default function BuilderPage() {
           Redefining affordable luxury across premium residential habitats.
         </p>
       </div>
+      <FoundersDesk />
       <BuyingProcess />
       <Reviews />
       <div id="contact" className="w-full">
