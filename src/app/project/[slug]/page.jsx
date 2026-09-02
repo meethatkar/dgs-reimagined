@@ -1,9 +1,9 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import ProjectHeaderInfo from "@/components/projectDetails/ProjectHeaderInfo";
+import ProjectBentoGrid from "@/components/projectDetails/ProjectBentoGrid";
 import AmenitiesSection from "@/components/projectDetails/AmenitiesSection";
 import ConnectivitySection from "@/components/projectDetails/ConnectivitySection";
 import ProjectCtaBanner from "@/components/projectDetails/ProjectCtaBanner";
@@ -37,7 +37,7 @@ export default async function ProjectDetailPage({ params }) {
     notFound();
   }
 
-  const { amenities, connectivity } = project;
+  const { amenities, connectivity, bentoImages } = project;
 
   return (
     <div className="min-h-screen bg-[#F9F8F5] text-neutral-900 flex flex-col justify-between">
@@ -79,6 +79,9 @@ export default async function ProjectDetailPage({ params }) {
 
         {/* 2. NEIGHBORHOOD & CONNECTIVITY SECTION */}
         <ConnectivitySection connectivity={connectivity} />
+
+        {/* BENTO GRID GALLERY SECTION */}
+        <ProjectBentoGrid images={bentoImages} title={project.title} />
 
         {/* CTA BANNER */}
         <ProjectCtaBanner projectTitle={project.title} />

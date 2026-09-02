@@ -25,7 +25,7 @@ Global Footer: Clean routing links and overarching corporate info. [DONE]
 *****2. Business Landing Pages (/builders & /retailers)
 Goal: Showcase the specific founder, display the projects dynamically, and capture leads.
 
-Business-Specific Hero: A premium entry tailored to either residential luxury (Builders) or commercial scale (Retailers).
+Business-Specific Hero: A premium entry tailored to either residential luxury (Builders) or commercial scale (Retailers). [DONE]
 
 The Visionary (Founder's Desk): The portrait and quote of the specific brother running this division. [DONE]
 

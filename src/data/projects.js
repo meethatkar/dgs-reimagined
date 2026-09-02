@@ -257,14 +257,8 @@ export const projects = [
     image: "/buildings/sheetail-infinity.jpg",
     slug: "dgs-tech-park",
     amenities: {
-      wellness: [
-        "Executive Fitness Hub",
-        "Cafeteria & Lounge Deck",
-      ],
-      leisure: [
-        "Green Courtyard",
-        "Conference & Event Zone",
-      ],
+      wellness: ["Executive Fitness Hub", "Cafeteria & Lounge Deck"],
+      leisure: ["Green Courtyard", "Conference & Event Zone"],
       convenience: [
         "Heavy Loading Docks",
         "24/7 High-Voltage Power Backup",
@@ -276,9 +270,7 @@ export const projects = [
         { label: "Western Express Highway", value: "1 min drive" },
         { label: "Aarey Metro Station", value: "2 mins walk" },
       ],
-      social: [
-        { label: "NESCO IT Park", value: "3 mins drive" },
-      ],
+      social: [{ label: "NESCO IT Park", value: "3 mins drive" }],
     },
   },
   {
@@ -293,27 +285,16 @@ export const projects = [
     image: "/buildings/rich-living-andheri.avif",
     slug: "sheetal-imperial",
     amenities: {
-      wellness: [
-        "Infinity Pool & Jacuzzi",
-        "Steam & Sauna Spa",
-      ],
-      leisure: [
-        "Private Mini Theater",
-        "Sky Lounge & BBQ Deck",
-      ],
-      convenience: [
-        "Private Elevator Foyer",
-        "Concierge Service 24/7",
-      ],
+      wellness: ["Infinity Pool & Jacuzzi", "Steam & Sauna Spa"],
+      leisure: ["Private Mini Theater", "Sky Lounge & BBQ Deck"],
+      convenience: ["Private Elevator Foyer", "Concierge Service 24/7"],
     },
     connectivity: {
       transit: [
         { label: "Metro Line 1", value: "3 mins walk" },
         { label: "Airport T2 Terminal", value: "15 mins drive" },
       ],
-      social: [
-        { label: "PVR Icon Infiniti Mall", value: "4 mins walk" },
-      ],
+      social: [{ label: "PVR Icon Infiniti Mall", value: "4 mins walk" }],
     },
   },
 ];

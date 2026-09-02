@@ -1,3 +1,53 @@
+export const builderHeroData = {
+  currentCategory: "Builders",
+  subHeader: "Built for your business",
+  estYear: "Est. 2024",
+  title: "Spaces Designed for Ambition.",
+  description:
+    "Architectural precision tailored to elevate luxury residential and bespoke commercial enterprises. We build foundations for legacy.",
+  imageSrc: "/buildings/sheetail-infinity.jpg",
+  primaryCta: "Explore Experience",
+  secondaryCta: "View Our Work",
+  primaryHref: "#contact",
+  secondaryHref: "/project",
+};
+
+export const builderFounderData = {
+  imageUrl: "/brahmaSir.webp",
+  name: "Mr. Brahmdev Shukla",
+  designation: "Managing Director",
+  eyebrow: "From the Founder's Desk",
+  mainQuote:
+    "We don't just construct buildings; we engineer lifestyles that stand the test of time.",
+  supportText:
+    "Our vision for the Western corridor is rooted in an uncompromising commitment to quality. Every brick laid is a promise kept to the families that choose to call our developments home.",
+};
+
+export const retailerHeroData = {
+  currentCategory: "Retailers",
+  subHeader: "State-of-the-Art Commercial Hubs",
+  estYear: "Est. 2024",
+  title: "Prime Spots for Growth.",
+  description:
+    "Strategic retail destinations and commercial arcades designed to maximize footfall, brand prestige, and seamless business expansion across Mumbai.",
+  imageSrc: "/buildings/rich-living-andheri.avif",
+  primaryCta: "Connect With Us",
+  secondaryCta: "View Outlets",
+  primaryHref: "#contact",
+  secondaryHref: "/project",
+};
+
+export const retailerFounderData = {
+  imageUrl: "/ishwardev.webp",
+  name: "Mr. Brahmdev Shukla",
+  designation: "Managing Director",
+  eyebrow: "From the Leadership",
+  mainQuote:
+    "Empowering businesses with commercial infrastructure designed for high footfall and long-term value.",
+  supportText:
+    "Our retail and commercial spaces are crafted to provide modern enterprises with prime locations, architectural grandeur, and seamless customer experiences across Mumbai.",
+};
+
 export const buyingJourneyData = {
   builders: {
     title: "From Vision to Keys in Hand",
