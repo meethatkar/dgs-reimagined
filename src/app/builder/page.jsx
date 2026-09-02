@@ -1,20 +1,28 @@
+import MainLandingPage from "@/components/sections/landing-hero/MainLandingPage";
+import FoundersDesk from "@/components/sections/ForundersDesk";
 import BuyingProcess from "@/components/pages/builders/BuyingProcess";
 import Reviews from "@/components/pages/builders/Reviews";
 import ContactSection from "@/components/sections/contact/ContactSection";
-import FoundersDesk from "@/components/sections/ForundersDesk";
 import React from "react";
+
+const builderData = {
+  currentCategory: "Builders",
+  subHeader: "Built for your business",
+  estYear: "Est. 2024",
+  title: "Spaces Designed for Ambition.",
+  description:
+    "Architectural precision tailored to elevate luxury residential and bespoke commercial enterprises. We build foundations for legacy.",
+  imageSrc: "/buildings/sheetail-infinity.jpg",
+  primaryCta: "Explore Experience",
+  secondaryCta: "View Our Work",
+  primaryHref: "#contact",
+  secondaryHref: "/project",
+};
 
 export default function BuilderPage() {
   return (
-    <main className="w-full min-h-screen bg-[#121212] text-white">
-      <div className="py-20 px-6 flex flex-col items-center justify-center text-center">
-        <h1 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-primary">
-          DGS Builders
-        </h1>
-        <p className="text-neutral-400 mt-4 max-w-xl">
-          Redefining affordable luxury across premium residential habitats.
-        </p>
-      </div>
+    <main className="w-full min-h-screen bg-white overflow-x-hidden">
+      <MainLandingPage data={builderData} />
       <FoundersDesk />
       <BuyingProcess />
       <Reviews />

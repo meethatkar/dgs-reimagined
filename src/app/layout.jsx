@@ -35,13 +35,14 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${cinzel.variable} ${poppins.variable} h-full antialiased`}
     >
       <head>
         <link rel="icon" href="/Logo.svg" type="image/svg+xml" sizes="any" />
         <link rel="apple-touch-icon" href="/Logo.svg" />
       </head>
-      <body className="font-poppins min-h-full flex flex-col">
+      <body className="font-poppins min-h-full flex flex-col" suppressHydrationWarning>
         <LoadingProvider>
           <SmoothScrollProvider>
             <PageTransition barClassName="bg-primary">

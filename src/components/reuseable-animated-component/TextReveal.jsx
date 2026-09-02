@@ -16,6 +16,11 @@ const TextReveal = ({
   scrub = true,
   once = true,
   type = "words, chars",
+  animateOnMount = false,
+  delay = 0.2,
+  duration = 0.8,
+  from = "random",
+  staggerEach = 0.02,
 }) => {
   const containerRef = useRef(null);
 
@@ -34,29 +39,43 @@ const TextReveal = ({
           ? split.words
           : split.lines;
 
-      // 2. Animate the characters on scroll
-      gsap.from(targetElements, {
-        y: 40, // Reduced slightly from 100 to keep it elegant and tight
-        autoAlpha: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: {
-          each: 0.02,
-          from: "random", // Your requested random edge effect
-        },
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start, // Triggers based on prop
-          end,
-          once, // We only want it to reveal once for a clean UX
-          scrub,
-        },
-      });
+      // 2. Animate immediately on mount OR on scroll
+      if (animateOnMount) {
+        gsap.from(targetElements, {
+          y: 30,
+          autoAlpha: 0,
+          duration,
+          delay,
+          ease: "power3.out",
+          stagger: {
+            each: staggerEach,
+            from,
+          },
+        });
+      } else {
+        gsap.from(targetElements, {
+          y: 40,
+          autoAlpha: 0,
+          duration,
+          ease: "power3.out",
+          stagger: {
+            each: staggerEach,
+            from,
+          },
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start,
+            end,
+            once,
+            scrub,
+          },
+        });
+      }
     }, containerRef);
 
     // 3. Crucial for Next.js: Revert the split and animation on unmount
     return () => ctx.revert();
-  }, [start, end, scrub, type]);
+  }, [start, end, scrub, type, animateOnMount, delay, duration, from, staggerEach]);
 
   return (
     <div ref={containerRef} className={className}>

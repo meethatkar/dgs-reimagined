@@ -151,11 +151,13 @@ export default function ParallaxScrollEffect({
       ref={containerRef}
       data-scroll
       data-scroll-speed={speed}
-      className={`relative ${overflowHidden ? "overflow-hidden" : ""} ${className}`}
+      style={{ position: "relative" }}
+      className={`${overflowHidden ? "overflow-hidden" : ""} ${className}`}
       {...props}
     >
       <div
         ref={targetRef}
+        style={{ position: "relative" }}
         className={`w-full h-full will-change-transform ${innerClassName}`}
       >
         {children}
