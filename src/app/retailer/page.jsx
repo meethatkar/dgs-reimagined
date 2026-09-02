@@ -5,12 +5,14 @@ import Reviews from "@/components/pages/retailers/Reviews";
 import ContactSection from "@/components/sections/contact/ContactSection";
 import React from "react";
 import { retailerHeroData, retailerFounderData } from "@/data/businessData";
+import ProjectSection from "@/components/sections/project/ProjectSection";
 
 export default function RetailerPage() {
   return (
     <main className="w-full min-h-screen overflow-x-hidden">
       <MainLandingPage data={retailerHeroData} />
       <FoundersDesk data={retailerFounderData} />
+      <ProjectSection />
       <BuyingProcess />
       <Reviews />
       <div id="contact" className="w-full">
