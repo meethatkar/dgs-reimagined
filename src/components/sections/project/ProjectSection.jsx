@@ -43,6 +43,7 @@ export default function ProjectSection() {
           perspective="1400px"
           itemWidth="clamp(200px, 20vw, 320px)"
           itemHeight="clamp(270px, 30vh, 420px)"
+          radius="clamp(250px, 38vw, 500px)"
           rotations={1.5}
           end={"bottom 10%"}
           onActiveChange={(idx) => setActiveIndex(idx)}
