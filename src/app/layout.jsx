@@ -24,6 +24,11 @@ export const metadata = {
   title: "DGS Groups",
   description:
     "30 Years of Trust. Affordable Luxury. Redefining Mumbai's Skyline.",
+  icons: {
+    icon: "/Logo.svg",
+    shortcut: "/Logo.svg",
+    apple: "/Logo.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -32,6 +37,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${cinzel.variable} ${poppins.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="icon" href="/Logo.svg" type="image/svg+xml" sizes="any" />
+        <link rel="apple-touch-icon" href="/Logo.svg" />
+      </head>
       <body className="font-poppins min-h-full flex flex-col">
         <LoadingProvider>
           <SmoothScrollProvider>

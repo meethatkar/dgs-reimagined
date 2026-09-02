@@ -21,7 +21,7 @@ const ScrollAssembleGrid = ({
   headingClassName = "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter drop-shadow-sm",
   cardClassName = "",
   className = "",
-  start = "top 10%",
+  start = "top 6%",
   end = "+=100%",
   scrub = 1,
   pin = true,
@@ -71,6 +71,7 @@ const ScrollAssembleGrid = ({
             invalidateOnRefresh: true,
             scroller: scrollerRef?.current || undefined,
             onLeave: onComplete,
+            markers: debug,
           },
         });
 
@@ -203,7 +204,7 @@ const ScrollAssembleGrid = ({
   return (
     <section
       ref={sectionRef}
-      className={`relative min-h-[100dvh] w-full overflow-hidden p-4 md:p-8 flex flex-col justify-between ${className}`}
+      className={`relative min-h-[100dvh] w-full overflow-hidden p-4 md:px-8 md:py-6 flex flex-col items-center justify-center gap-2 md:gap-3 ${className}`}
     >
       {/* Background Media */}
       {backgroundVideo ? (
@@ -237,9 +238,14 @@ const ScrollAssembleGrid = ({
         aria-hidden="true"
       />
 
-      {/* Mobile Heading (Top position to avoid card overlap) */}
+      {/* Top Row Cards */}
+      <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-x-[1.05rem] md:gap-x-[1.575rem] gap-y-3 md:gap-y-4 w-full">
+        {topRowItems.map((item, i) => renderCard(item, i))}
+      </div>
+
+      {/* Heading (Positioned in flex flow between top and bottom card rows) */}
       {heading && (
-        <div className="md:hidden relative z-20 w-full flex items-center justify-center pt-4 pb-2 px-4">
+        <div className="relative z-20 w-full flex items-center justify-center py-1 md:py-1.5 px-4 pointer-events-none">
           {typeof heading === "string" ? (
             <TextReveal
               className={`text-center uppercase font-black text-primary tracking-tight ${headingClassName}`}
@@ -255,31 +261,8 @@ const ScrollAssembleGrid = ({
         </div>
       )}
 
-      {/* Desktop Heading (Central absolute position between both rows) */}
-      {heading && (
-        <div className="hidden md:flex absolute inset-0 z-20 items-center justify-center pointer-events-none px-4">
-          {typeof heading === "string" ? (
-            <TextReveal
-              className={`text-center uppercase font-black text-primary tracking-tight ${headingClassName}`}
-              start="top 75%"
-              end="top 30%"
-              once={false}
-            >
-              {heading}
-            </TextReveal>
-          ) : (
-            heading
-          )}
-        </div>
-      )}
-
-      {/* Top Row Cards */}
-      <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-x-[1.05rem] md:gap-x-[1.575rem] gap-y-4 md:gap-y-6 w-full pt-2">
-        {topRowItems.map((item, i) => renderCard(item, i))}
-      </div>
-
       {/* Bottom Row Cards */}
-      <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-x-[1.05rem] md:gap-x-[1.575rem] gap-y-4 md:gap-y-6 w-full pb-4">
+      <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-x-[1.05rem] md:gap-x-[1.575rem] gap-y-3 md:gap-y-4 w-full">
         {bottomRowItems.map((item, i) => renderCard(item, i + 4))}
       </div>
     </section>

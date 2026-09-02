@@ -11,6 +11,7 @@ import Awards from "../pages/Home/Awards";
 import Reviews from "../pages/Home/Reviews";
 import TextZoom from "../pages/Home/TextZoom";
 import AboutUs from "../pages/Home/AboutUs";
+import ContactSection from "../sections/contact/ContactSection";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -76,6 +77,9 @@ export default function HomePage() {
         </div>
         <div id="reviews" className="w-full">
           <Reviews />
+        </div>
+        <div id="contact" className="w-full">
+          <ContactSection />
         </div>
       </div>
     </main>

@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import Logo from "../Logo";
 import Navbtns from "./NavBtns";
 import Button from "../ui/Button";
@@ -45,6 +46,7 @@ const defaultNavItems = [
 const Navbar = ({ onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   // Conditionally select navigation items based on current URL path
   const getNavItems = () => {
@@ -64,18 +66,42 @@ const Navbar = ({ onNavigate }) => {
 
   const handleLinkClick = (item) => {
     setMobileMenuOpen(false);
-    // Disabled scrollTo action as requested
+    if (!item?.target) return;
+
+    if (item.target.startsWith("#")) {
+      const element = document.querySelector(item.target);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        router.push("/" + item.target);
+      }
+    } else {
+      router.push(item.target);
+    }
+  };
+
+  const handleContactClick = () => {
+    setMobileMenuOpen(false);
+    const element = document.querySelector("#contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push("/#contact");
+    }
   };
 
   return (
     <>
       <header className="sticky top-0 left-0 w-full z-40 bg-white/40 backdrop-blur-lg">
         <nav className="max-w-[1900px] mx-auto flex items-center justify-between px-5 sm:px-8 md:px-10 py-3 md:py-4">
-          {/* LOGO */}
-          <Logo
-            variant="lg"
-            onClick={() => handleLinkClick({ label: null, target: "#hero" })}
-          />
+          {/* LOGO — Redirects to Home Page */}
+          <Link
+            href="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className="shrink-0 flex items-center"
+          >
+            <Logo variant="lg" />
+          </Link>
 
           {/* DESKTOP & TABLET: Nav Links (Conditionally rendered by route) */}
           <div className="hidden md:flex items-center gap-2 lg:gap-3">
@@ -91,13 +117,7 @@ const Navbar = ({ onNavigate }) => {
 
           {/* DESKTOP & TABLET: Contact Button */}
           <div className="hidden md:block">
-            <Button
-              variant="primary"
-              size="md"
-              onClick={() =>
-                handleLinkClick({ label: "Contact", target: "#contact" })
-              }
-            >
+            <Button variant="primary" size="md" onClick={handleContactClick}>
               Contact Us
             </Button>
           </div>

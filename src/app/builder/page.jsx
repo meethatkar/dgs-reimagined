@@ -16,7 +16,9 @@ export default function BuilderPage() {
       </div>
       <BuyingProcess />
       <Reviews />
-      <ContactSection />
+      <div id="contact" className="w-full">
+        <ContactSection />
+      </div>
     </main>
   );
 }
