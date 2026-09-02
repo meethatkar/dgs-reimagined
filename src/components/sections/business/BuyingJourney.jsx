@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -31,7 +32,7 @@ const BuyingJourney = ({ data }) => {
               end: "bottom 80%",
               scrub: true,
             },
-          }
+          },
         );
       }
 
@@ -57,7 +58,7 @@ const BuyingJourney = ({ data }) => {
               start: "top 85%",
               toggleActions: "play none none reverse",
             },
-          }
+          },
         );
       });
     }, sectionRef);
@@ -107,19 +108,66 @@ const BuyingJourney = ({ data }) => {
               >
                 {/* Visual / Illustration Side */}
                 <div className="step-visual w-full md:w-1/2 relative flex justify-center items-center">
-                  {/* Watermark Number */}
-                  <span
-                    className={`absolute text-[8rem] sm:text-[12rem] md:text-[16rem] font-black text-neutral-100/60 leading-none z-0 tracking-tighter ${
-                      isEven ? "left-0 md:-left-10" : "right-0 md:-right-10"
-                    } top-1/2 -translate-y-1/2 select-none pointer-events-none`}
-                  >
-                    {step.id}
-                  </span>
+                  {/* Container for Illustration / Responsive GIF */}
+                  <div className="relative z-10 w-full max-w-[280px] sm:max-w-[340px] aspect-square bg-white shadow-xl rounded-2xl border border-neutral-100 p-3 sm:p-4">
+                    {/* Step Number on Top-Left of Image */}
+                    <span
+                      className={`absolute -top-6 sm:-top-10 right-0 left-auto ${
+                        isEven
+                          ? "sm:right-auto sm:left-0 sm:-left-10 md:-left-20"
+                          : "sm:right-0 sm:left-auto sm:-right-10 md:-right-20"
+                      } text-[5.2rem] sm:text-[7.8rem] md:text-[7.4rem] font-black text-neutral-200/50 leading-none z-20 tracking-tighter select-none pointer-events-none drop-shadow-xs`}
+                    >
+                      {step.id}
+                    </span>
 
-                  {/* Container for Illustration */}
-                  <div className="relative z-10 w-full max-w-[280px] sm:max-w-[320px] aspect-square bg-white shadow-xl rounded-2xl border border-neutral-100 flex items-center justify-center p-6 sm:p-8">
-                    <div className="text-center text-neutral-400 text-xs sm:text-sm italic">
-                      [Insert Lottie: <br /> {step.lottieKeyword}]
+                    <div className="relative w-full h-full overflow-hidden rounded-xl flex items-center justify-center">
+                      {step.gif ? (
+                        typeof step.gif === "object" ? (
+                          <>
+                            {/* Mobile GIF */}
+                            <div className="block sm:hidden relative w-full h-full">
+                              <Image
+                                src={step.gif.mobile || step.gif.desktop}
+                                alt={step.title}
+                                fill
+                                className="object-contain rounded-xl"
+                                unoptimized
+                                priority={index === 0}
+                                sizes="(max-width: 640px) 280px, 340px"
+                              />
+                            </div>
+                            {/* Desktop GIF */}
+                            <div className="hidden sm:block relative w-full h-full">
+                              <Image
+                                src={step.gif.desktop || step.gif.mobile}
+                                alt={step.title}
+                                fill
+                                className="object-contain rounded-xl"
+                                unoptimized
+                                priority={index === 0}
+                                sizes="(max-width: 640px) 280px, 340px"
+                              />
+                            </div>
+                          </>
+                        ) : (
+                          <div className="relative w-full h-full">
+                            <Image
+                              src={step.gif}
+                              alt={step.title}
+                              fill
+                              className="object-contain rounded-xl"
+                              unoptimized
+                              priority={index === 0}
+                              sizes="(max-width: 640px) 280px, 340px"
+                            />
+                          </div>
+                        )
+                      ) : (
+                        <div className="text-center text-neutral-400 text-xs sm:text-sm italic">
+                          [Insert Lottie: <br /> {step.lottieKeyword}]
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
