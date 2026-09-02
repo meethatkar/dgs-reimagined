@@ -31,6 +31,7 @@ const BuyingJourney = ({ data }) => {
               start: "top 60%",
               end: "bottom 80%",
               scrub: true,
+              refreshPriority: 2, // Calculate after ProjectSection, before Reviews
             },
           },
         );
@@ -57,6 +58,7 @@ const BuyingJourney = ({ data }) => {
               trigger: step,
               start: "top 85%",
               toggleActions: "play none none reverse",
+              refreshPriority: 2, // Ensure correct order
             },
           },
         );

@@ -3,7 +3,6 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -99,6 +98,7 @@ const CircularScrollCarousel = ({
           pinSpacing: true,
           anticipatePin: 1,
           markers: debug,
+          refreshPriority: 3, // Force early calculation to push subsequent sections down correctly
           onUpdate: (self) => applyDim(self.progress),
         },
       });
@@ -154,9 +154,7 @@ const CircularScrollCarousel = ({
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <Image
-              height={700}
-              width={700}
+            <img
               src={img.src}
               alt={img.alt || ""}
               className="h-full w-full object-cover"
