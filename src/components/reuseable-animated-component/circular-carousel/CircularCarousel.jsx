@@ -91,7 +91,7 @@ const CircularScrollCarousel = ({
         force3D: true,
         scrollTrigger: {
           trigger: targetTrigger,
-          start: "top 5%",
+          start: "top 5.5%",
           end,
           scrub: 1,
           pin,

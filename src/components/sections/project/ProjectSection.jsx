@@ -33,6 +33,14 @@ export default function ProjectSection() {
           Explore iconic residential and commercial landmarks crafted with
           precision across Mumbai.
         </p>
+        <div className="mt-4 flex justify-center">
+          <Link
+            href="/projects"
+            className="px-6 py-2 bg-transparent border border-[#EADFC9] hover:border-[#C5A059] text-[#111111] hover:text-[#C5A059] transition-all duration-300 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase shadow-sm"
+          >
+            Explore All Projects
+          </Link>
+        </div>
       </div>
 
       {/* 3D Circular Scroll Carousel */}
