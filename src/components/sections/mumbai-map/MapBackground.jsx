@@ -1,18 +1,37 @@
 import React from "react";
-import Image from "next/image";
 
 export default function MapBackground({
-  imageSrc = "/buildings/mumbai-map-placeholder.jpg",
-  alt = "Mumbai Map",
+  imageSrc = "/mumbai-map.png",
+  isVertical = false,
+  scale = 1.65,
+  translateX = 512,
+  translateY = 246,
 }) {
+  if (isVertical) {
+    return (
+      <g transform="translate(250, 480) scale(1.48)">
+        <image
+          href={imageSrc}
+          x="-200"
+          y="-300"
+          width="400"
+          height="600"
+          opacity="0.55"
+        />
+      </g>
+    );
+  }
+
   return (
-    <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-sm opacity-80 mix-blend-multiply">
-      <Image
-        src={imageSrc}
-        alt={alt}
-        fill
-        className="object-cover object-center filter grayscale contrast-125 opacity-40"
+    <g transform={`translate(${translateX}, ${translateY}) scale(${scale}) rotate(-90)`}>
+      <image
+        href={imageSrc}
+        x="-200"
+        y="-300"
+        width="400"
+        height="600"
+        opacity="0.55"
       />
-    </div>
+    </g>
   );
 }
