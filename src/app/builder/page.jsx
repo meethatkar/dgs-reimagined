@@ -3,6 +3,7 @@ import FoundersDesk from "@/components/sections/ForundersDesk";
 import BuyingProcess from "@/components/pages/builders/BuyingProcess";
 import Reviews from "@/components/pages/builders/Reviews";
 import ContactSection from "@/components/sections/contact/ContactSection";
+import MumbaiRailwayMap from "@/components/sections/mumbai-map/MumbaiRailwayMap";
 import React from "react";
 import { builderHeroData, builderFounderData } from "@/data/businessData";
 
