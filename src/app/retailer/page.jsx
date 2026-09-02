@@ -1,6 +1,7 @@
 import Reviews from "@/components/pages/retailers/Reviews";
 import BuyingProcess from "@/components/pages/retailers/BuyingProcess";
 import React from "react";
+import ContactSection from "@/components/sections/contact/ContactSection";
 
 export default function RetailerPage() {
   return (
@@ -15,6 +16,7 @@ export default function RetailerPage() {
       </div>
       <BuyingProcess />
       <Reviews />
+      <ContactSection />
     </main>
   );
 }

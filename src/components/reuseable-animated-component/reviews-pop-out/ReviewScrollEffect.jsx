@@ -74,8 +74,8 @@ const ReviewScrollEffect = ({ reviews = [] }) => {
             x: targetX,
             y: targetY,
             pointerEvents: "auto",
-            duration: 1,
-            ease: "power2.out",
+            duration: 1.2,
+            ease: "none",
           })
           .to(
             card,
@@ -85,8 +85,8 @@ const ReviewScrollEffect = ({ reviews = [] }) => {
               x: targetX,
               y: targetY,
               pointerEvents: "none",
-              duration: 0.8,
-              ease: "power1.in",
+              duration: 1,
+              ease: "none",
             },
             "-=0.1",
           );

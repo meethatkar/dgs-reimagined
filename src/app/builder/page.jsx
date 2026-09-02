@@ -1,5 +1,6 @@
 import BuyingProcess from "@/components/pages/builders/BuyingProcess";
 import Reviews from "@/components/pages/builders/Reviews";
+import ContactSection from "@/components/sections/contact/ContactSection";
 import React from "react";
 
 export default function BuilderPage() {
@@ -15,6 +16,7 @@ export default function BuilderPage() {
       </div>
       <BuyingProcess />
       <Reviews />
+      <ContactSection />
     </main>
   );
 }

@@ -32,15 +32,16 @@ Filterable Project Grid: The animated masonry grid where buyers can sort Ongoing
 
 The Buying Journey: The winding SVG path showing the step-by-step process of investing with this specific division. [DONE]
 
-Customer Reviews: Horizontal draggable carousel of star ratings.
+Customer Reviews: Horizontal draggable carousel of star ratings.   [DONE]
 
-Contact Gateway: The "Talk, Meet, Write" form to capture the lead.
+Contact Gateway: The "Talk, Meet, Write" form to capture the lead. 
 
-** Project List Page:
+** Project List Page: [DONE]
 Filters:- business, project status, location, [Future: Amanities, BHK]  
 Feat: on map location pin click it should open project list page with already filtered data of that location.
 DGS-1 Project: project card.
 
 **Project Details Page:
-Old UI with bento grid to show some images of residence, 
-also show show image effect for Amanities (refer from golf website).
+Old UI [DONE]
+with bento grid to show some images of residence,  
+also show show image effect for Amanities (refer from golf website). 

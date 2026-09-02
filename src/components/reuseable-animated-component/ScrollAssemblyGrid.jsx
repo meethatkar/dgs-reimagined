@@ -87,7 +87,7 @@ const ScrollAssembleGrid = ({
           tl.to(
             overlayRef.current,
             { opacity: overlayOpacity, duration: 0.4, ease: "none" },
-            0
+            0,
           );
         }
 
@@ -102,11 +102,11 @@ const ScrollAssembleGrid = ({
             duration: 1,
             ease: "power2.out",
           },
-          0
+          0,
         );
 
         return () => {};
-      }
+      },
     );
 
     return () => {
