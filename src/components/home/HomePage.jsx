@@ -40,23 +40,25 @@ export default function HomePage() {
       id="main-wrapper"
       className="relative flex flex-col items-center w-full"
     >
-      <Preloader
-        words={[
-          "30 Years of Trust.",
-          "Affordable Luxury.",
-          "Redefining Mumbai's Skyline.",
-        ]}
-        backgroundColor="#1c1c1c"
-        circleColor="#F9F8F5"
-        holdDuration={0.6}
-        fadeInDuration={0.5}
-        fadeOutDuration={0.3}
-        exitDuration={0.01}
-        explodeDuration={1}
-        onComplete={() => {
-          setIsLoading(false);
-        }}
-      />
+      {isLoading && (
+        <Preloader
+          words={[
+            "30 Years of Trust.",
+            "Affordable Luxury.",
+            "Redefining Mumbai's Skyline.",
+          ]}
+          backgroundColor="#1c1c1c"
+          circleColor="#F9F8F5"
+          holdDuration={0.6}
+          fadeInDuration={0.5}
+          fadeOutDuration={0.3}
+          exitDuration={0.01}
+          explodeDuration={1}
+          onComplete={() => {
+            setIsLoading(false);
+          }}
+        />
+      )}
 
       <div
         className={`relative w-full ${
