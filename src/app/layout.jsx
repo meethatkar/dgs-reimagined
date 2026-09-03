@@ -4,6 +4,7 @@ import { LoadingProvider } from "@/context/Loading.context";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import PageTransition from "@/components/reuseable-animated-component/PageTransition";
 import Footer from "@/components/Footer";
+import { ProjectsFilterProvider } from "@/context/ProjectsFilterContext";
 import Navbar from "@/components/navbar/Navbar";
 import UniqueMarquee from "@/components/reuseable-animated-component/unique-marquee/UniqueMarquee";
 
@@ -45,12 +46,14 @@ export default function RootLayout({ children }) {
       <body className="font-poppins min-h-full flex flex-col" suppressHydrationWarning>
         <LoadingProvider>
           <SmoothScrollProvider>
-            <PageTransition barClassName="bg-primary">
-              <Navbar />
-              {children}
-              <UniqueMarquee />
-              <Footer />
-            </PageTransition>
+            <ProjectsFilterProvider itemsPerPage={6}>
+              <PageTransition barClassName="bg-primary">
+                <Navbar />
+                {children}
+                <UniqueMarquee />
+                <Footer />
+              </PageTransition>
+            </ProjectsFilterProvider>
           </SmoothScrollProvider>
         </LoadingProvider>
       </body>

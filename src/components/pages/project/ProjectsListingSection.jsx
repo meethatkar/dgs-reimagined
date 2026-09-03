@@ -65,11 +65,7 @@ function ProjectsListingContent() {
   );
 }
 
-// Main Component wrapping Layer 4 UI with Layer 2 Context Provider
+// Main Component (Provider is now in layout.jsx)
 export default function ProjectsListingSection() {
-  return (
-    <ProjectsFilterProvider itemsPerPage={6}>
-      <ProjectsListingContent />
-    </ProjectsFilterProvider>
-  );
+  return <ProjectsListingContent />;
 }

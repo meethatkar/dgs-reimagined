@@ -1,4 +1,8 @@
+"use client";
+
 import React from "react";
+import { useRouter } from "next/navigation";
+import { useProjectsContext } from "@/context/ProjectsFilterContext";
 
 export default function MapStationNode({
   station,
@@ -6,8 +10,25 @@ export default function MapStationNode({
   isPassed,
   isVertical = false,
 }) {
+  const router = useRouter();
+  const { projectsData, setSelectedLocation } = useProjectsContext();
   const hasProject = station.projectsCount > 0;
   const isAndheri = station.id === "andheri";
+
+  const handleProjectClick = () => {
+    // Find exact location name from data to match the Select dropdown
+    const match = projectsData.find((p) => 
+      p.location?.toLowerCase().includes(station.name.toLowerCase())
+    );
+    
+    if (match) {
+      setSelectedLocation(match.location);
+      router.push(`/projects?location=${encodeURIComponent(match.location)}`);
+    } else {
+      setSelectedLocation(station.id);
+      router.push(`/projects?location=${station.id.toLowerCase()}`);
+    }
+  };
 
   return (
     <g className="transition-all duration-500">
@@ -44,12 +65,13 @@ export default function MapStationNode({
       {/* GPS Pin & Floating Badge for Live Projects */}
       {hasProject && (
         <g
+          onClick={handleProjectClick}
           transform={
             isVertical
               ? `translate(${station.x - 20}, ${station.y + 8})`
               : `translate(${station.x}, ${station.y - 16})`
           }
-          className={`transition-all duration-500 origin-center ${
+          className={`transition-all duration-500 origin-center cursor-pointer ${
             isPassed
               ? "opacity-100 scale-100"
               : "opacity-0 scale-50 pointer-events-none"
