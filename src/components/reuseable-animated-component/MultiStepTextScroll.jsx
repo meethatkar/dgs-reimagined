@@ -47,61 +47,66 @@ const MultiStepTextScroll = ({ data = [], bgColor = "#F9F8F5" }) => {
 
         if (i < sections.length - 1) {
           const nextSec = sections[i + 1];
-          const currChars = sec.querySelectorAll(".char-item");
-          const nextChars = nextSec.querySelectorAll(".char-item");
+          const currWords = sec.querySelectorAll(".word-item");
+          const nextWords = nextSec.querySelectorAll(".word-item");
           const transitionLabel = `crossfade-${i}`;
 
           tl.addLabel(transitionLabel)
             // --- ANIMATE OUT CURRENT CONTENT ---
             .to(
-              currChars,
+              currWords,
               {
-                y: -40,
+                y: -100,
                 autoAlpha: 0,
-                stagger: 0.01,
-                duration: 0.5,
-                ease: "power2.in",
+                stagger: 0.05,
+                duration: 0.6,
+                ease: "sine.inOut",
                 force3D: true,
               },
-              transitionLabel
+              transitionLabel,
             )
             .to(
               sec.querySelectorAll(".step-feature-item"),
               {
-                y: -20,
+                y: -50,
                 autoAlpha: 0,
                 stagger: 0.05,
                 duration: 0.4,
+                ease: "sine.inOut",
                 force3D: true,
               },
-              transitionLabel
+              transitionLabel,
             )
             // Slide fill out for current number indicator
             .to(
               fillLayers[i],
               {
                 height: "0%",
-                duration: 0.4,
-                ease: "power2.inOut",
+                duration: 0.8,
+                ease: "sine.inOut",
               },
-              transitionLabel
+              transitionLabel,
             )
             .set(sec, { pointerEvents: "none" }, transitionLabel + "+=0.5")
 
             // --- ANIMATE IN NEXT CONTENT ---
-            .set(nextSec, { autoAlpha: 1, pointerEvents: "auto" }, transitionLabel)
+            .set(
+              nextSec,
+              { autoAlpha: 1, pointerEvents: "auto" },
+              transitionLabel,
+            )
             .fromTo(
-              nextChars,
-              { y: 40, autoAlpha: 0 },
+              nextWords,
+              { y: 100, autoAlpha: 0 },
               {
                 y: 0,
                 autoAlpha: 1,
-                stagger: 0.02,
-                duration: 0.6,
-                ease: "power2.out",
+                stagger: 0.05,
+                duration: 0.7,
+                ease: "sine.inOut",
                 force3D: true,
               },
-              transitionLabel
+              transitionLabel,
             )
             .fromTo(
               nextSec.querySelectorAll(".step-feature-item"),
@@ -111,9 +116,10 @@ const MultiStepTextScroll = ({ data = [], bgColor = "#F9F8F5" }) => {
                 autoAlpha: 1,
                 stagger: 0.05,
                 duration: 0.5,
+                ease: "sine.inOut",
                 force3D: true,
               },
-              transitionLabel
+              transitionLabel,
             )
             // Slide fill up for next number indicator
             .to(
@@ -121,9 +127,9 @@ const MultiStepTextScroll = ({ data = [], bgColor = "#F9F8F5" }) => {
               {
                 height: "100%",
                 duration: 0.4,
-                ease: "power2.inOut",
+                ease: "sine.inOut",
               },
-              transitionLabel
+              transitionLabel,
             );
         }
       });
@@ -135,77 +141,94 @@ const MultiStepTextScroll = ({ data = [], bgColor = "#F9F8F5" }) => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[100dvh] overflow-hidden flex flex-col items-center justify-center px-4"
-      style={{ backgroundColor: bgColor }}
+      className="relative w-full h-[100dvh] overflow-hidden"
     >
-      {/* 1. Numbers Indicator (Sliding Bottom-to-Top Fill Reveal) */}
-      <div className="absolute top-[12vh] md:top-[16vh] w-full flex justify-center gap-6 md:gap-16 z-20 px-4">
-        {data.map((step, i) => (
-          <div
-            key={i}
-            className="step-number-indicator relative inline-flex items-center text-2xl sm:text-4xl md:text-5xl font-black font-mono select-none"
-          >
-            {/* Base Muted Number Text */}
-            <span className="text-neutral-300">
-              {step.id || `0${i + 1}`}.
+      {/* ── Split Background ── */}
+      <div className="absolute inset-0 flex">
+        <div className="w-[35%] h-full bg-white relative">
+          <div className="absolute right-4 md:right-8 top-[15%] text-right text-[10px] md:text-xs uppercase font-medium text-[#121212] tracking-widest flex flex-col items-end pointer-events-none">
+            <span className="text-xl md:text-2xl leading-none mb-1 font-light">
+              +
             </span>
-
-            {/* Sliding Fill Overlay */}
-            <div
-              className="step-number-fill absolute bottom-0 left-0 w-full flex items-end overflow-hidden pointer-events-none transition-none"
-              style={{ height: "0%" }}
-            >
-              <span className="text-[#121212] whitespace-nowrap">
-                {step.id || `0${i + 1}`}.
-              </span>
-            </div>
+            <span className="whitespace-nowrap">THE DGS STANDARD</span>
           </div>
-        ))}
+        </div>
+        <div
+          className="w-[65%] h-full"
+          style={{ backgroundColor: bgColor }}
+        ></div>
       </div>
 
-      {/* 2. Text Content Stack (Perfectly Vertically Centered with Word Grouping) */}
-      <div className="relative w-full max-w-7xl h-[60vh] flex items-center justify-center z-10 mt-[6vh]">
-        {data.map((step, i) => (
-          <div
-            key={i}
-            className="step-content-section absolute inset-0 w-full flex flex-col items-center justify-center text-center px-4"
-          >
-            <h1 className="step-title text-4xl sm:text-6xl md:text-8xl lg:text-[7rem] font-black uppercase tracking-tighter leading-tight text-[#121212] will-change-transform flex flex-wrap justify-center gap-x-[0.3em]">
-              {step.title.split(" ").map((word, wordIdx) => (
-                <span
-                  key={wordIdx}
-                  className="inline-block whitespace-nowrap"
-                >
-                  {word.split("").map((char, charIdx) => (
-                    <span
-                      key={charIdx}
-                      className="char-item inline-block will-change-transform"
-                    >
-                      {char}
-                    </span>
-                  ))}
+      {/* ── Static Numbers Indicator ── */}
+      <div className="absolute top-[15%] left-[35%] w-[65%] pl-6 md:pl-16 z-20 pointer-events-none">
+        <div className="flex gap-4 md:gap-8 text-3xl md:text-5xl font-semibold font-poppins text-neutral-300">
+          {data.map((step, i) => (
+            <div
+              key={`num-${i}`}
+              className="relative overflow-hidden inline-block pb-1"
+            >
+              <span className="opacity-40">{step.id}.</span>
+              <span
+                className="step-number-fill absolute bottom-0 left-0 w-full overflow-hidden text-[#121212] transition-colors"
+                style={{ height: i === 0 ? "100%" : "0%" }}
+              >
+                <span className="absolute bottom-1 left-0 leading-none">
+                  {step.id}.
                 </span>
-              ))}
-            </h1>
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
 
-            {/* Sub-features Grid */}
-            {step.features && step.features.length > 0 && (
-              <div className="flex flex-wrap justify-center gap-3 md:gap-10 mt-6 md:mt-12 w-full max-w-5xl">
-                {step.features.map((feature, idx) => (
-                  <div
-                    key={idx}
-                    className="step-feature-item flex flex-col items-center gap-1.5 md:gap-2 will-change-transform"
-                  >
-                    <span className="w-2 h-2 bg-primary rounded-full"></span>
-                    <p className="text-xs sm:text-sm md:text-base font-semibold text-neutral-600 uppercase tracking-widest max-w-[220px]">
-                      {feature}
-                    </p>
+      {/* ── Foreground Content ── */}
+      <div className="absolute inset-0 z-10 w-full h-full pointer-events-none">
+        {data.map((step, i) => {
+          const words = step.title.split(" ");
+          return (
+            <div
+              key={`step-${i}`}
+              className="step-content-section absolute inset-0 flex flex-col justify-center"
+              style={{
+                opacity: i === 0 ? 1 : 0,
+                visibility: i === 0 ? "visible" : "hidden",
+                pointerEvents: i === 0 ? "auto" : "none",
+              }}
+            >
+              {/* Massive Title crossing the split */}
+              <h1 className="w-full pl-[10%] text-[13vw] md:text-[11vw] lg:text-[10vw] font-medium font-poppins text-[#121212] leading-[0.85] tracking-tighter text-left uppercase mt-[-5vh]">
+                {words.map((word, wIdx) => (
+                  <div key={wIdx} className="overflow-hidden block">
+                    <span className="word-item inline-block will-change-transform whitespace-nowrap">
+                      {word}
+                    </span>
                   </div>
                 ))}
-              </div>
-            )}
-          </div>
-        ))}
+              </h1>
+
+              {/* Sub-features Grid on the right side */}
+              {step.features && step.features.length > 0 && (
+                <div className="absolute bottom-[10%] left-[35%] w-[65%] pl-6 md:pl-16 pr-6 pointer-events-auto">
+                  <div className="flex flex-row flex-wrap gap-x-8 md:gap-x-16 gap-y-6">
+                    {step.features.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="step-feature-item flex flex-col items-start gap-1 md:gap-2 will-change-transform flex-1 min-w-[120px] max-w-[200px]"
+                      >
+                        <span className="text-xl md:text-2xl font-bold text-[#121212] leading-none">
+                          -
+                        </span>
+                        <p className="text-xs md:text-sm font-medium text-[#121212] leading-snug tracking-wide">
+                          {feature}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );
