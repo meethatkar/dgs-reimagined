@@ -48,14 +48,19 @@ export default function HomePage() {
         ]}
         backgroundColor="#1c1c1c"
         circleColor="#F9F8F5"
+        holdDuration={0.6}
+        fadeInDuration={0.5}
+        fadeOutDuration={0.3}
+        exitDuration={0.01}
+        explodeDuration={1}
         onComplete={() => {
           setIsLoading(false);
         }}
       />
 
       <div
-        className={`relative w-full transition-opacity duration-150 ${
-          isLoading ? "opacity-0 pointer-events-none" : "opacity-100"
+        className={`relative w-full ${
+          isLoading ? "pointer-events-none" : ""
         }`}
       >
         <div id="hero" className="w-full">

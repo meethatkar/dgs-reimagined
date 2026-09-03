@@ -16,7 +16,7 @@ const Preloader = ({
   holdDuration = 0.25,
   fadeInDuration = 0.25,
   fadeOutDuration = 0.2,
-  counterDuration = 1.2,
+  counterDuration = 3,
   explodeScale = 60,
   explodeDuration = 0.6,
   exitDuration = 0.15,
@@ -93,7 +93,7 @@ const Preloader = ({
         } else {
           tl.to(
             {},
-            { duration: holdDuration - 0.1 > 0 ? holdDuration - 0.1 : 0.1 }
+            { duration: holdDuration - 0.1 > 0 ? holdDuration - 0.1 : 0.1 },
           );
         }
       });
@@ -122,26 +122,38 @@ const Preloader = ({
               }
             },
           },
-          0
+          0,
         );
       }
 
-      // ── Fade out counter + text before circle explodes ──────────────────
+      // ── Fade out counter + text before mask wipe ──────────────────
       const fadeTargets = showCounter
         ? [counterWrapperRef.current, textRef.current]
         : [textRef.current];
       tl.to(fadeTargets, { opacity: 0, duration: 0.15 }, "-=0.1");
 
-      // ── Circle wipe: explodes from bottom-center ─────────────────────────
+      // ── Shrink & drop circle ───────────────────────────────────────────────
       tl.to(
         circleRef.current,
         {
-          scale: explodeScale,
+          scale: 0,
+          opacity: 0,
+          y: 100, // drop further down
+          duration: 0.4,
+          ease: "power2.inOut",
+        },
+        "<", // start simultaneously with text fade
+      );
+
+      // ── Mask wipe: hole expands from bottom-center ─────────────────────────
+      tl.to(
+        containerRef.current,
+        {
+          "--hole": "150%",
           duration: explodeDuration,
           ease: "power3.inOut",
-          force3D: true,
         },
-        "+=0.05"
+        "+=0.05",
       );
     }, containerRef);
 
@@ -159,7 +171,16 @@ const Preloader = ({
     <div
       ref={containerRef}
       className={`fixed inset-0 flex items-center justify-center overflow-hidden ${className}`}
-      style={{ willChange: "opacity", backgroundColor, zIndex }}
+      style={{
+        willChange: "opacity",
+        backgroundColor,
+        zIndex,
+        "--hole": "0%",
+        WebkitMaskImage:
+          "radial-gradient(circle at 50% 100%, transparent var(--hole), black var(--hole))",
+        maskImage:
+          "radial-gradient(circle at 50% 100%, transparent var(--hole), black var(--hole))",
+      }}
     >
       {/* Cycling phrases */}
       <h1
@@ -170,7 +191,7 @@ const Preloader = ({
         {safeWords[wordIndex]}
       </h1>
 
-      {/* Expanding circle wipe */}
+      {/* Decorative circle */}
       <div
         ref={circleRef}
         className="absolute w-[200px] h-[200px] rounded-full z-20 will-change-transform"
