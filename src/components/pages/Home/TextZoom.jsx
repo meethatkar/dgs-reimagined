@@ -16,6 +16,10 @@ const TextZoom = () => {
       subText: "30 Years of Excellence",
       mainText: "SHAPING MUMBAI.",
     },
+    {
+      subText: "Building Trust, Delivering Dreams",
+      mainText: "WE ARE DGS.",
+    },
   ];
 
   return (

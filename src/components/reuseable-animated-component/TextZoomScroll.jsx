@@ -58,21 +58,26 @@ const TextZoomScroll = ({
         if (i !== 0) {
           tl.to(
             panel,
-            { scale: 1, autoAlpha: 1, duration: 1, ease: "power2.out" },
+            { scale: 1, autoAlpha: 1, duration: 1, ease: "power2.inOut" },
             "-=0.5",
           );
         }
-
-        // 2. Pause for reading readability
-        tl.to({}, { duration: 0.6 });
-
         // 3. Zoom panel OUT (Capped scale: 15 prevents GPU texture memory limits & reverse scroll lag)
-        tl.to(panel, {
-          scale: 15,
-          autoAlpha: 0,
-          duration: 1.5,
-          ease: "power3.in",
-        });
+        if (i !== validPanels.length - 1) {
+          tl.to(
+            panel,
+            {
+              scale: 15,
+              autoAlpha: 0,
+              duration: 1.5,
+              ease: "sine.inOut",
+            },
+            "-=0.05",
+          );
+        } else {
+          // 4. Hold the last panel on screen so it can be read before the section unpins
+          tl.to({}, { duration: 1 });
+        }
       });
     }, sectionRef);
 
