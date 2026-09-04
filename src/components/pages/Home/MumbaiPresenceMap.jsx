@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   STATIONS_DATA,
   RAILWAY_PATH_D,
@@ -12,6 +10,7 @@ import {
 import MapHeader from "@/components/sections/mumbai-map/MapHeader";
 import MapBackground from "@/components/sections/mumbai-map/MapBackground";
 import MapStationNode from "@/components/sections/mumbai-map/MapStationNode";
+import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -108,7 +107,13 @@ export default function InteractiveTransitMap({ title, subtitle }) {
               preserveAspectRatio="xMidYMid meet"
             >
               <defs>
-                <filter id="goldGlowMobile" x="-20%" y="-20%" width="140%" height="140%">
+                <filter
+                  id="goldGlowMobile"
+                  x="-20%"
+                  y="-20%"
+                  width="140%"
+                  height="140%"
+                >
                   <feGaussianBlur stdDeviation="3.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
@@ -167,7 +172,13 @@ export default function InteractiveTransitMap({ title, subtitle }) {
               preserveAspectRatio="xMidYMid meet"
             >
               <defs>
-                <filter id="goldGlowDesktop" x="-20%" y="-20%" width="140%" height="140%">
+                <filter
+                  id="goldGlowDesktop"
+                  x="-20%"
+                  y="-20%"
+                  width="140%"
+                  height="140%"
+                >
                   <feGaussianBlur stdDeviation="3.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>

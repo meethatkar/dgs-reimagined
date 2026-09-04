@@ -2,8 +2,7 @@
 import React, { useRef, useEffect, useCallback, memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
 import ProjectCardContent from "./ProjectCardContent";
 
 if (typeof window !== "undefined") {

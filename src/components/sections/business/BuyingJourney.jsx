@@ -2,8 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);

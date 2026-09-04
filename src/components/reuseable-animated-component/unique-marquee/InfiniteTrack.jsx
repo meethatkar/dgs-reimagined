@@ -1,6 +1,6 @@
 "use client";
+import { gsap } from "@/utils/gsap.utils";
 import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
 
 const InfiniteTrack = ({ items = [] }) => {
   const containerRef = useRef(null);

@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import gsap from "gsap";
 import Button from "../ui/Button";
 import MobileNavBtn from "./MobileNavBtns";
 import Cross from "../../../public/icons/Cross";
+import { gsap } from "@/utils/gsap.utils";
 
 const MobileNav = ({
   isOpen,
@@ -18,7 +18,10 @@ const MobileNav = ({
   // Mount menu DOM element when opened
   useEffect(() => {
     if (isOpen) {
-      setIsMenuMounted(true);
+      function setData() {
+        setIsMenuMounted(true);
+      }
+      setData();
     }
   }, [isOpen]);
 

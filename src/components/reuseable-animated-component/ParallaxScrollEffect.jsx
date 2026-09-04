@@ -1,21 +1,16 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/utils/gsap.utils";
+import { gsap } from "@/utils/gsap.utils";
 
-/**
- * Custom Hook: useDataParallax
- * Scans a container for any elements with [data-scroll-speed] attributes 
- * and binds GSAP ScrollTrigger parallax animations to them automatically.
- * Works seamlessly with Lenis smooth scroll.
- */
 export function useDataParallax(containerRef) {
   useEffect(() => {
     if (!containerRef?.current) return;
 
     const ctx = gsap.context(() => {
-      const parallaxElements =
-        containerRef.current.querySelectorAll("[data-scroll-speed]");
+      const parallaxElements = containerRef.current.querySelectorAll(
+        "[data-scroll-speed]",
+      );
 
       parallaxElements.forEach((el) => {
         const rawSpeed = el.getAttribute("data-scroll-speed");
@@ -41,7 +36,7 @@ export function useDataParallax(containerRef) {
                 scrub: 0.5,
                 invalidateOnRefresh: true,
               },
-            }
+            },
           );
         } else {
           gsap.to(el, {
@@ -102,11 +97,7 @@ export default function ParallaxScrollEffect({
     const ctx = gsap.context(() => {
       const target = targetRef.current;
       const effectiveScale =
-        typeof scale === "number"
-          ? scale
-          : scale === true
-          ? scaleAmount
-          : 1;
+        typeof scale === "number" ? scale : scale === true ? scaleAmount : 1;
 
       if (effectiveScale > 1) {
         gsap.fromTo(
@@ -126,7 +117,7 @@ export default function ParallaxScrollEffect({
               scrub: scrub,
               invalidateOnRefresh: true,
             },
-          }
+          },
         );
       } else {
         gsap.to(target, {

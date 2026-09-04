@@ -1,8 +1,6 @@
 "use client";
+import { gsap, ScrollTrigger, SplitText } from "@/utils/gsap.utils";
 import React, { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -75,7 +73,17 @@ const TextReveal = ({
 
     // 3. Crucial for Next.js: Revert the split and animation on unmount
     return () => ctx.revert();
-  }, [start, end, scrub, type, animateOnMount, delay, duration, from, staggerEach]);
+  }, [
+    start,
+    end,
+    scrub,
+    type,
+    animateOnMount,
+    delay,
+    duration,
+    from,
+    staggerEach,
+  ]);
 
   return (
     <div ref={containerRef} className={className}>

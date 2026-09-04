@@ -1,6 +1,6 @@
 "use client";
+import { gsap } from "@/utils/gsap.utils";
 import React, { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
 
 const DEFAULT_WORDS = ["Welcome.", "Loading Experience.", "Almost There."];
 
