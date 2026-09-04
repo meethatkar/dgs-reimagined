@@ -1,12 +1,11 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import ReviewCard from "./ReviewCard";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 // Viewport-safe drift targets (% of vw/vh).
@@ -23,10 +22,10 @@ const ReviewScrollEffect = ({ reviews = [] }) => {
   const containerRef = useRef(null);
   const cardsRef = useRef([]);
 
-  useGSAP(
-    () => {
-      if (!containerRef.current || reviews.length === 0) return;
+  useEffect(() => {
+    if (!containerRef.current || reviews.length === 0) return;
 
+    const ctx = gsap.context(() => {
       const validCards = cardsRef.current.filter(Boolean);
       const isMobile = window.innerWidth < 768;
 
@@ -42,6 +41,7 @@ const ReviewScrollEffect = ({ reviews = [] }) => {
           scrub: 1,
           pin: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
           refreshPriority: 1, // Calculate after ProjectSection and BuyingJourney
           markers: false, // Turn off debugging markers
         },
@@ -54,32 +54,33 @@ const ReviewScrollEffect = ({ reviews = [] }) => {
         const targetX = (window.innerWidth * config.x * spreadX) / 100;
         const targetY = (window.innerHeight * config.y * spreadY) / 100;
 
-        // Initial State: Explicitly set xPercent & yPercent to -50% in GSAP so centering is 100% accurate
-        gsap.set(card, {
-          xPercent: -50,
-          yPercent: -50,
-          scale: 0,
-          autoAlpha: 0,
-          x: 0,
-          y: 0,
-          transformOrigin: "center center",
-          force3D: true,
-          pointerEvents: "none",
-        });
-
         const cardTl = gsap.timeline();
 
         cardTl
           // Combined motion: simultaneously scale out from 0 to 1 AND drift from center (0,0) to (targetX, targetY)
-          .to(card, {
-            scale: 1,
-            autoAlpha: 1,
-            x: targetX,
-            y: targetY,
-            pointerEvents: "auto",
-            duration: 1.2,
-            ease: "power2.out",
-          })
+          .fromTo(
+            card,
+            {
+              xPercent: -50,
+              yPercent: -50,
+              scale: 0,
+              autoAlpha: 0,
+              x: 0,
+              y: 0,
+              transformOrigin: "center center",
+              force3D: true,
+              pointerEvents: "none",
+            },
+            {
+              scale: 1,
+              autoAlpha: 1,
+              x: targetX,
+              y: targetY,
+              pointerEvents: "auto",
+              duration: 1.2,
+              ease: "power2.out",
+            },
+          )
           // Continue slight drift & scale while fading out
           .to(
             card,
@@ -98,9 +99,10 @@ const ReviewScrollEffect = ({ reviews = [] }) => {
         // Stagger sequence smoothly
         tl.add(cardTl, index * 1.0);
       });
-    },
-    { scope: containerRef, dependencies: [reviews] },
-  );
+    }, containerRef.current);
+
+    return () => ctx.revert();
+  }, [reviews]);
 
   return (
     <section

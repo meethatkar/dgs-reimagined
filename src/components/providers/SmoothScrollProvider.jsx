@@ -51,8 +51,25 @@ export default function SmoothScrollProvider({ children }) {
     // Refresh ScrollTrigger after Lenis initialization
     ScrollTrigger.refresh();
 
+    // 5. Listen for page transitions to re-sync Lenis dimensions with new page content
+    const handlePageTransitionComplete = () => {
+      // Lenis needs to recalculate the new page's scroll height
+      lenis.resize();
+      // Ensure ScrollTrigger has the latest measurements after Lenis resize
+      ScrollTrigger.refresh(true);
+    };
+
+    window.addEventListener(
+      "page-transition-complete",
+      handlePageTransitionComplete,
+    );
+
     // Cleanup on unmount
     return () => {
+      window.removeEventListener(
+        "page-transition-complete",
+        handlePageTransitionComplete,
+      );
       gsap.ticker.remove(updateTicker);
       lenis.off("scroll", ScrollTrigger.update);
       lenis.destroy();

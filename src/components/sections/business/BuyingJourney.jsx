@@ -63,7 +63,7 @@ const BuyingJourney = ({ data }) => {
           },
         );
       });
-    }, sectionRef);
+    }, sectionRef.current);
 
     return () => ctx.revert();
   }, [data]);

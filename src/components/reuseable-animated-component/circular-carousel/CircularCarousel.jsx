@@ -104,14 +104,7 @@ const CircularScrollCarousel = ({
       });
 
       applyDim(0);
-
-      // Force layout recalculation to sync with preceding page elements
-      const timer = setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 300);
-
-      return () => clearTimeout(timer);
-    }, sceneRef);
+    }, sceneRef.current);
 
     return () => ctx.revert();
   }, [

@@ -106,7 +106,7 @@ const CountUpStats = () => {
           }
         }, hitTime);
       });
-    }, sectionRef);
+    }, sectionRef.current);
 
     return () => ctx.revert();
   }, []);

@@ -23,15 +23,26 @@ export default function HomePage() {
 
   useEffect(() => {
     if (!isLoading) {
-      const isTouchDevice =
-        typeof window !== "undefined" &&
-        window.matchMedia("(pointer: coarse)").matches;
-      const delay = isTouchDevice ? 500 : 150;
-      const timer = setTimeout(() => {
-        window.dispatchEvent(new Event("resize"));
-        ScrollTrigger.refresh();
-      }, delay);
-      return () => clearTimeout(timer);
+      // After the preloader completes, wait for the DOM to settle and images
+      // to load before doing the authoritative ScrollTrigger refresh.
+      const rafId = requestAnimationFrame(() => {
+        const images = document.querySelectorAll("img");
+        const imagePromises = Array.from(images).map((img) => {
+          if (img.complete) return Promise.resolve();
+          return new Promise((resolve) => {
+            img.addEventListener("load", resolve, { once: true });
+            img.addEventListener("error", resolve, { once: true });
+          });
+        });
+
+        const timeout = new Promise((resolve) => setTimeout(resolve, 2000));
+
+        Promise.race([Promise.all(imagePromises), timeout]).then(() => {
+          window.dispatchEvent(new Event("resize"));
+          ScrollTrigger.refresh(true);
+        });
+      });
+      return () => cancelAnimationFrame(rafId);
     }
   }, [isLoading]);
 

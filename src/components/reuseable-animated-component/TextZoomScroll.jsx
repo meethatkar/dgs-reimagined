@@ -45,19 +45,16 @@ const TextZoomScroll = ({
           scrub: 0.5,
           pin: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
         },
       });
 
       validPanels.forEach((panel, i) => {
-        // Initial states: First panel is visible, subsequent panels are scaled down and hidden
-        if (i !== 0) {
-          gsap.set(panel, { scale: 0.5, autoAlpha: 0 });
-        }
-
         // 1. Bring the panel IN (if not the first item)
         if (i !== 0) {
-          tl.to(
+          tl.fromTo(
             panel,
+            { scale: 0.5, autoAlpha: 0 },
             { scale: 1, autoAlpha: 1, duration: 1, ease: "power2.inOut" },
             "-=0.5",
           );
@@ -79,7 +76,7 @@ const TextZoomScroll = ({
           tl.to({}, { duration: 1 });
         }
       });
-    }, sectionRef);
+    }, sectionRef.current);
 
     return () => ctx.revert();
   }, [normalizedBatches, uid]);

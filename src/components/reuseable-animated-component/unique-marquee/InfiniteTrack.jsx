@@ -17,7 +17,7 @@ const InfiniteTrack = ({ items = [] }) => {
         ease: "none",
         force3D: true,
       });
-    }, containerRef);
+    }, containerRef.current);
 
     return () => ctx.revert();
   }, []);

@@ -37,6 +37,7 @@ const MultiStepTextScroll = ({ data = [], bgColor = "#F9F8F5" }) => {
           scrub: 1,
           pin: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
         },
       });
 
@@ -133,7 +134,7 @@ const MultiStepTextScroll = ({ data = [], bgColor = "#F9F8F5" }) => {
             );
         }
       });
-    }, containerRef);
+    }, containerRef.current);
 
     return () => ctx.revert();
   }, [data, uid]);

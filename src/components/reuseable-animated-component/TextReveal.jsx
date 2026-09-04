@@ -71,7 +71,7 @@ const TextReveal = ({
           },
         });
       }
-    }, containerRef);
+    }, containerRef.current);
 
     // 3. Crucial for Next.js: Revert the split and animation on unmount
     return () => ctx.revert();

@@ -75,14 +75,7 @@ const ScrollAssembleGrid = ({
           },
         });
 
-        // 1. Initial State: Use window.innerHeight instead of "100vh"
-        gsap.set(validCards, {
-          y: typeof window !== "undefined" ? window.innerHeight : 1000,
-          opacity: 0,
-          force3D: true,
-        });
-
-        // 2. Overlay fade in
+        // 1. Overlay fade in
         if (overlayRef.current) {
           gsap.set(overlayRef.current, { opacity: 0 });
           tl.to(
@@ -92,9 +85,14 @@ const ScrollAssembleGrid = ({
           );
         }
 
-        // 3. Staggered card slide-up into place
-        tl.to(
+        // 2. Staggered card slide-up into place (fromTo guarantees start state survives invalidateOnRefresh)
+        tl.fromTo(
           validCards,
+          {
+            y: typeof window !== "undefined" ? window.innerHeight : 1000,
+            opacity: 0,
+            force3D: true,
+          },
           {
             y: 0,
             opacity: 1,

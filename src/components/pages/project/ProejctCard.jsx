@@ -99,7 +99,7 @@ const ProejctCard = memo(function ProejctCard({ project }) {
 
         timelineRef.current = tl;
       }
-    }, cardRef);
+    }, cardRef.current);
 
     return () => ctx.revert(); // Revert all GSAP animations & kill timeline on unmount
   }, []);

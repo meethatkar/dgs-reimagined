@@ -54,6 +54,7 @@ export default function InteractiveTransitMap({ title, subtitle }) {
           scrub: 1,
           pin: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
           onUpdate: (self) => {
             const prog = self.progress;
             const currentIdx = STATIONS_DATA.findLastIndex(
@@ -65,12 +66,24 @@ export default function InteractiveTransitMap({ title, subtitle }) {
       });
 
       if (pathH) {
-        tl.to(pathH, { strokeDashoffset: 0, ease: "none", duration: 1 }, 0);
+        const totalH = pathH.getTotalLength();
+        tl.fromTo(
+          pathH,
+          { strokeDasharray: totalH, strokeDashoffset: totalH },
+          { strokeDashoffset: 0, ease: "none", duration: 1 },
+          0,
+        );
       }
       if (pathV) {
-        tl.to(pathV, { strokeDashoffset: 0, ease: "none", duration: 1 }, 0);
+        const totalV = pathV.getTotalLength();
+        tl.fromTo(
+          pathV,
+          { strokeDasharray: totalV, strokeDashoffset: totalV },
+          { strokeDashoffset: 0, ease: "none", duration: 1 },
+          0,
+        );
       }
-    }, sectionRef);
+    }, sectionRef.current);
 
     return () => ctx.revert();
   }, []);

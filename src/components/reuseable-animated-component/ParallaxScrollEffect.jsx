@@ -57,7 +57,7 @@ export function useDataParallax(containerRef) {
           });
         }
       });
-    }, containerRef);
+    }, containerRef.current);
 
     return () => ctx.revert();
   }, [containerRef]);
@@ -141,7 +141,7 @@ export default function ParallaxScrollEffect({
           },
         });
       }
-    }, containerRef);
+    }, containerRef.current);
 
     return () => ctx.revert();
   }, [speed, scale, scaleAmount, start, end, scrub]);
